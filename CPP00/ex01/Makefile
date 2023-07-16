@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jonchoi <jonchoi@student.42seoul.k>        +#+  +:+       +#+         #
+#    By: jonchoi <jonchoi@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/06/14 15:32:08 by jonchoi           #+#    #+#              #
-#    Updated: 2023/06/14 16:05:40 by jonchoi          ###   ########.fr        #
+#    Created: 2023/07/15 19:17:21 by jonchoi           #+#    #+#              #
+#    Updated: 2023/07/15 19:18:22 by jonchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	myPhoneBook
+NAME		=	phonebook
 
 CC			=	c++
 
