@@ -6,11 +6,11 @@
 /*   By: jonchoi <jonchoi@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:28 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/06/14 16:08:01 by jonchoi          ###   ########.fr       */
+/*   Updated: 2023/07/18 20:07:52 by jonchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "PhoneBook.hpp"
 
 int main()
 {
@@ -20,8 +20,11 @@ int main()
 	{
 		std::cout << "input> ";
 		std::getline(std::cin, cmd);
-		if (cmd == "")
+		if (cmd.compare("EXIT") == 0)
+		{
+			std::cout << "QUIT" << std::endl;
 			break ;
+		}
 
 		std::cout << cmd << std::endl;
 	}
