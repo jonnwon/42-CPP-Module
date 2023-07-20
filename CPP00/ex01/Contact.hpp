@@ -1,32 +1,39 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-#include "PhoneBook.h"
+/*
+index | first name | last name | nickname 
+
+ first name, last name, nickname, phone number, and
+darkest secret.
+*/
 
 class Contact {
-private:
-    std::string firstName;
-    std::string lastName;
-    std::string nickName;
-    std::string phoneNum;
-    std::string darkestSecret;
-public:
-    Contact();
-    ~Contact();
+ private:
+	std::string firstName;
+	std::string lastName;
+	std::string nickName;
+	std::string phoneNumber;
+	std::string darkestSecret;
 
-    void setFirstName(std::string firstName);
-    void setLastName(std::string lastName);
-    void setNickName(std::string nickName);
-    void setPhoneNum(std::string phoneNum);
-    void setDarkestSecret(std::string darkestSecret);
+ public:
+	Contact();
+	~Contact();
 
-    std::string getFirstName();
-    std::string getLastName();
-    std::string getNickName();
-    std::string getPhoneNum();
-    std::string getDarkestSecret();
+	void set_firstName(std::string str);
+	void set_lastName(std::string str);
+	void set_nickName(std::string str);
+	void set_phoneNumber(std::string str);
+	void set_darkestSecret(std::string str);
 
-    void setAllInfo(Contact contact);
+	std::string get_firstName(void);
+	std::string get_lastName(void);
+	std::string get_nickName(void);
+	std::string get_phoneNumber(void);
+	std::string get_darkestSecret(void);
+
+	void set_contact(Contact contact);
+//	void print_contact(void);
 };
 
 #endif

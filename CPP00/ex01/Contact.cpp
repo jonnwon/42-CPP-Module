@@ -1,24 +1,26 @@
-#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 Contact::Contact() { }
 Contact::~Contact() { }
 
-void Contact::setFirstName(std::string firstName) { this->firstName = firstName; }
-void Contact::setLastName(std::string lastName) {  this->lastName = lastName; }
-void Contact::setNickName(std::string nickName) { this->nickName = nickName; }
-void Contact::setPhoneNum(std::string phoneNum) { this->phoneNum = phoneNum; }
-void Contact::setDarkestSecret(std::string darkestSecret) { this->darkestSecret = darkestSecret; }
+void	Contact::set_firstName(std::string str) { this->firstName = str; }
+void	Contact::set_lastName(std::string str) { this->lastName = str; }
+void	Contact::set_nickName(std::string str) { this->nickName = str; }
+void	Contact::set_phoneNumber(std::string str) { this->phoneNumber = str; }
+void	Contact::set_darkestSecret(std::string str)	{ this->darkestSecret = str; }
 
-std::string Contact::getFirstName() { return this->firstName; }
-std::string Contact::getLastName() { return this->lastName; }
-std::string Contact::getNickName() { return this->nickName; }
-std::string Contact::getPhoneNum() { return this->phoneNum; }
-std::string Contact::getDarkestSecret() { return this->darkestSecret; }
 
-void Contact::setAllInfo(Contact contact) {
-    this->firstName = contact.firstName;
-    this->lastName = contact.lastName;
-    this->nickName = contact.nickName;
-    this->phoneNum = contact.phoneNum;
-    this->darkestSecret = contact.darkestSecret;
+std::string	Contact::get_firstName(void) { return (this->firstName); }
+std::string	Contact::get_lastName(void) { return (this->lastName); }
+std::string	Contact::get_nickName(void) { return (this->nickName); }
+std::string	Contact::get_phoneNumber(void) { return (this->phoneNumber); }
+std::string	Contact::get_darkestSecret(void) { return (this->darkestSecret); }
+
+void	Contact::set_contact(Contact contact)
+{
+	this->firstName = contact.firstName;
+	this->lastName = contact.lastName;
+	this->nickName = contact.nickName;
+	this->phoneNumber = contact.phoneNumber;
+	this->darkestSecret = contact.darkestSecret;
 }

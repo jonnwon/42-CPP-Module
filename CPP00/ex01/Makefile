@@ -6,7 +6,7 @@
 #    By: jonchoi <jonchoi@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/15 19:17:21 by jonchoi           #+#    #+#              #
-#    Updated: 2023/07/15 19:18:22 by jonchoi          ###   ########.fr        #
+#    Updated: 2023/07/20 21:22:26 by jonchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ CC			=	c++
 
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRC			=	main.cpp
+SRC			=	main.cpp\
+				Contact.cpp\
+				PhoneBook.cpp\
 
 OBJS_DIR	=	objs
 
