@@ -3,8 +3,7 @@
 Contact::Contact() { }
 Contact::~Contact() { }
 
-void	Contact::setFirstName(std::string str) { this->firstName = str; }
-void	Contact::set_lastName(std::string str) { this->lastName = str; }
+void	Contact::set_firstName(std::string str) { this->firstName = str; }void	Contact::set_lastName(std::string str) { this->lastName = str; }
 void	Contact::set_nickName(std::string str) { this->nickName = str; }
 void	Contact::set_phoneName(std::string str) { this->phoneName = str; }
 void	Contact::set_darkestSecret(std::string str)	{ this->darkestSecret = str; }

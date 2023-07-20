@@ -6,7 +6,7 @@
 /*   By: jonchoi <jonchoi@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:28 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/18 20:07:52 by jonchoi          ###   ########.fr       */
+/*   Updated: 2023/07/20 19:15:47 by jonchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,20 @@ int main()
 {
 	std::string cmd;
 
+	std::cout << "An empty phonebook has been created!" << std::endl;
+	std::cout << "Enter one of ADD, SEARCH, EXIT" << std::endl;
 	while (1)
 	{
-		std::cout << "input> ";
+		std::cout << "Please select an action: (ADD, SEARCH, EXIT) " << std::endl;
 		std::getline(std::cin, cmd);
 		if (cmd.compare("EXIT") == 0)
 		{
-			std::cout << "QUIT" << std::endl;
+			std::cout << "Contact deleted!" << std::endl;
 			break ;
 		}
-
-		std::cout << cmd << std::endl;
+//		else if (cmd.compare("ADD"))
+			
+//		std::cout << cmd << std::endl;
 	}
 
 	return (0);
