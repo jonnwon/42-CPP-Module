@@ -6,12 +6,12 @@
 /*   By: jonchoi <jonchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:32:48 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/22 04:54:20 by jonchoi          ###   ########.fr       */
+/*   Updated: 2023/07/22 05:26:56 by jonchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <locale>
+#include <cctype>
 
 int main(int argc, char **argv)
 {
