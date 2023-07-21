@@ -33,7 +33,7 @@ void	PhoneBook::addContact()
 	this->index++;	
 }
 
-void	PhoneBook::print_contact(int index)
+void	PhoneBook::print_name(int index)
 {
 	std::string str;
 
@@ -41,21 +41,40 @@ void	PhoneBook::print_contact(int index)
 	std::cout << "|";
 
 	str =  contact[index].get_firstName();
+	if (str.length() >= 10)
+		str = str.substr(0, 9) + ".";
 	std::cout << std::setw(10) << str;
 	std::cout << "|";
 
 	str =  contact[index].get_lastName();
+	if (str.length() >= 10)
+		str = str.substr(0, 9) + ".";
 	std::cout << std::setw(10) << str;
 	std::cout << "|";
 
 	str =  contact[index].get_nickName();
+	if (str.length() >= 10)
+		str = str.substr(0, 9) + ".";
 	std::cout << std::setw(10) << str;
 	std::cout << "|" << std::endl;
+}
 
+void	PhoneBook::print_contact(std::string index)
+{
+	int idx;
+
+	idx = index[0] - '0';
+	std::cout << "first name : " << contact[idx - 1].get_firstName() << std::endl; 
+	std::cout << "last name : " << contact[idx - 1].get_lastName() << std::endl; 
+	std::cout << "nick name : " << contact[idx - 1].get_nickName() << std::endl; 
+	std::cout << "phone number : " << contact[idx - 1].get_phoneNumber() << std::endl; 
+	std::cout << "darkest secret : " << contact[idx - 1].get_darkestSecret() << std::endl; 
 }
 
 void	PhoneBook::searchContact()
 {
+	int i;
+
 	std::cout << "============================================"<< std::endl;
 	std::cout << std::setw(10) << "index";
 	std::cout << "|";
@@ -71,13 +90,34 @@ void	PhoneBook::searchContact()
 	std::cout << std::endl;
 	std::cout << "============================================"<< std::endl;
 
-	int i = 0;
-	while (i < 8) //&& contact[i].get_firstName().compare("") != 0)
+	i = 0;
+	while (i < 8)
 	{
-		PhoneBook::print_contact(i);
+		PhoneBook::print_name(i);
 		std::cout << "--------------------------------------------"<< std::endl;
 		i++;
 	}
+
+	std::string index;
+	std::cout << "Please enter the index you are looking for." << std::endl;
+	std::getline(std::cin, index);
+
+	if (index.compare("1") == 0)
+		print_contact(index);
+	else if (index.compare("2") == 0)
+		print_contact(index);
+	else if (index.compare("3") == 0)
+		print_contact(index);
+	else if (index.compare("4") == 0)
+		print_contact(index);
+	else if (index.compare("5") == 0)
+		print_contact(index);
+	else if (index.compare("6") == 0)
+		print_contact(index);
+	else if (index.compare("7") == 0)
+		print_contact(index);
+	else if (index.compare("8") == 0)
+		print_contact(index);
+	else
+		std::cout << "warning: Invalid index" << std::endl;
 }
-
-

@@ -6,14 +6,6 @@
 #include <iomanip>
 #include "Contact.hpp"
 
-/*
-addContact
-searchContact
-removeConctact
-printAllContacnt
-
-*/
-
 class PhoneBook
 {
 	private:
@@ -26,12 +18,8 @@ class PhoneBook
 
 		void	addContact();
 		void	searchContact();
-
-
-		//	void	removeContact();
-		//	void	printAallContact();
-		void	print_contact(int index);
-
+		void	print_name(int index);
+		void	print_contact(std::string index);
 };
 
 #endif

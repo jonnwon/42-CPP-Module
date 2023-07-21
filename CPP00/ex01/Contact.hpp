@@ -1,13 +1,6 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-/*
-index | first name | last name | nickname 
-
- first name, last name, nickname, phone number, and
-darkest secret.
-*/
-
 class Contact {
  private:
 	std::string firstName;
@@ -31,9 +24,6 @@ class Contact {
 	std::string get_nickName(void);
 	std::string get_phoneNumber(void);
 	std::string get_darkestSecret(void);
-
-	void set_contact(Contact contact);
-//	void print_contact(void);
 };
 
 #endif
