@@ -6,11 +6,9 @@ PhoneBook::~PhoneBook() { }
 void	PhoneBook::addContact()
 {
 	std::string str;
-	std::cout << "Hi, Im addContact func()" << std::endl;		// del
 
 	if (this->index > 7)
 		this->index = 0;
-	std::cout << "index is: " << this->index << std::endl;		// 현재 인덱스 확인 
 
 	std::cout << "Please enter first name" << std::endl;
 	std::getline(std::cin, str);
@@ -33,14 +31,6 @@ void	PhoneBook::addContact()
 	contact[this->index].set_darkestSecret(str);
 
 	this->index++;	
-
-//	/*print test*/
-//	std::cout << "firstname: " << contact[this->index - 1].get_firstName() << std::endl;
-//	std::cout << "lastname: " << contact[this->index - 1].get_lastName() << std::endl;
-//	std::cout << "nickname: " << contact[this->index - 1].get_nickName() << std::endl;
-//	std::cout << "phone number: " << contact[this->index - 1].get_phoneNumber() << std::endl;
-//	std::cout << "darkest secret: " << contact[this->index - 1].get_darkestSecret() << std::endl;
-//
 }
 
 void	PhoneBook::print_contact(int index)
@@ -64,12 +54,8 @@ void	PhoneBook::print_contact(int index)
 
 }
 
-
 void	PhoneBook::searchContact()
 {
-	std::cout << "Hi, Im searchContact func() " << std::endl;
-
-
 	std::cout << "============================================"<< std::endl;
 	std::cout << std::setw(10) << "index";
 	std::cout << "|";
