@@ -6,7 +6,7 @@
 /*   By: jonchoi <jonchoi@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 20:57:20 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/22 01:35:21 by jonchoi          ###   ########.fr       */
+/*   Updated: 2023/07/22 04:55:16 by jonchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int main()
 			phonebook.addContact();
 		else if (cmd.compare("SEARCH") == 0)
 			phonebook.searchContact();
-			
-//		std::cout << cmd << std::endl;
 	}
 
 	return (0);
