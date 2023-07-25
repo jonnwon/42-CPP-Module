@@ -6,43 +6,43 @@
 /*   By: jonchoi <jonchoi@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 04:54:04 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/22 04:54:06 by jonchoi          ###   ########.fr       */
+/*   Updated: 2023/07/25 21:33:37 by jonchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() { this->index = 0; }
+PhoneBook::PhoneBook() { index = 0; }
 PhoneBook::~PhoneBook() { }
 
 void	PhoneBook::addContact()
 {
 	std::string str;
 
-	if (this->index > 7)
-		this->index = 0;
+	if (index > 7)
+		index = 0;
 
 	std::cout << "Please enter first name" << std::endl;
 	std::getline(std::cin, str);
-	contact[this->index].set_firstName(str);
+	contact[index].set_firstName(str);
 
 	std::cout << "Please enter last name" << std::endl;
 	std::getline(std::cin, str);
-	contact[this->index].set_lastName(str);
+	contact[index].set_lastName(str);
 
 	std::cout << "Please enter nickname" << std::endl;
 	std::getline(std::cin, str);
-	contact[this->index].set_nickName(str);
+	contact[index].set_nickName(str);
 
 	std::cout << "Please enter phone number" << std::endl;
 	std::getline(std::cin, str);
-	contact[this->index].set_phoneNumber(str);
+	contact[index].set_phoneNumber(str);
 
 	std::cout << "Please enter darkest secret" << std::endl;
 	std::getline(std::cin, str);
-	contact[this->index].set_darkestSecret(str);
+	contact[index].set_darkestSecret(str);
 
-	this->index++;	
+	index++;	
 }
 
 void	PhoneBook::print_name(int index)
