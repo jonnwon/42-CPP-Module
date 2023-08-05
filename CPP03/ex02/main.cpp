@@ -1,12 +1,12 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
 	std::cout << "main test" << std::endl;
 
-	ScavTrap a("HI");
-	ScavTrap b = a;
-	ScavTrap c("Hello");
+	FragTrap a("HI");
+	FragTrap b = a;
+	FragTrap c("Hello");
 
 	a.print_status();
 	b.print_status();	// Copy constructor test
@@ -16,6 +16,6 @@ int main()
 
 	b.attack("Bye");	// attack func test
 
-	b.guardGate();		//	guardGate func test
+	b.highFivesGuys();		//	highFivesGuys func test
 	return 0;
 }
