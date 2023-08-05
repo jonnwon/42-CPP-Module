@@ -1,5 +1,4 @@
 #include "ClapTrap.hpp"
-#include <cstdio>
 
 ClapTrap::ClapTrap()
 :m_name("defalut"), m_hit_points(10), m_energy_points(10), m_attack_demage(0)

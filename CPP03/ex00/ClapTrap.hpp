@@ -22,7 +22,7 @@ class ClapTrap
 	public:
 		ClapTrap();
 		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap &other);
+		ClapTrap(const ClapTrap& other);
 		ClapTrap& operator=(const ClapTrap& rhs);
 		~ClapTrap();
 
@@ -30,10 +30,6 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-//		std::string		get_name();
-//		unsigned int	get_hit_points();
-//		unsigned int	get_energy_points();
-//		unsigned int	get_attack_demage();
 		void			print_status();
 };
 
