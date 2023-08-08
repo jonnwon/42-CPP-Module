@@ -15,7 +15,6 @@ class Animal
 		Animal& operator=(const Animal& rhs);
 		~Animal();
 
-
 };
 
 #endif
