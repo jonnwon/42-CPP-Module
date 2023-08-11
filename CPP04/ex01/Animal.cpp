@@ -31,3 +31,14 @@ void	Animal::makeSound() const
 {
 	std::cout << "[Animal] : make Sound" << std::endl;
 }
+
+std::string	Animal::get_type()
+{
+	return type;
+}
+
+void	Animal::set_type(std::string type)
+{
+	this->type = type;
+}
+

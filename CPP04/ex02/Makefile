@@ -1,4 +1,4 @@
-NAME		=	Polymorphism
+NAME		=	Abstract_class
 
 CC			=	c++
 
@@ -10,6 +10,7 @@ SRC			=	main.cpp\
 				Cat.cpp\
 				WrongAnimal.cpp\
 				WrongCat.cpp\
+				Brain.cpp\
 
 OBJS_DIR	=	objs
 

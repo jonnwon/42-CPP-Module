@@ -1,4 +1,4 @@
-NAME		=	Polymorphism
+NAME		=	I_don’t_want_to_set_the_world_on_fire
 
 CC			=	c++
 
@@ -10,6 +10,7 @@ SRC			=	main.cpp\
 				Cat.cpp\
 				WrongAnimal.cpp\
 				WrongCat.cpp\
+				Brain.cpp\
 
 OBJS_DIR	=	objs
 
