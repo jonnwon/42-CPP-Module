@@ -22,6 +22,6 @@ int main()
 		jim.attack();
 	}
 
-	system("leaks Unnecessary_violence");
+	//system("leaks Unnecessary_violence");		// leak test
 	return 0;
 }

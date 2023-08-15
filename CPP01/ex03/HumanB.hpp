@@ -17,5 +17,4 @@ class HumanB
 		void	setWeapon(Weapon& w);
 };
 
-
 #endif
