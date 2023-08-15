@@ -22,6 +22,10 @@ int main()
 		jim.attack();
 	}
 
+<<<<<<< HEAD
 	//system("leaks Unnecessary_violence");		// leak test
+=======
+	system("leaks Unnecessary_violence");	// leak check
+>>>>>>> 922b1e04a17e33f127bdb0d7e4e63d5dacdc078e
 	return 0;
 }
