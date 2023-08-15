@@ -9,6 +9,7 @@ class Fixed
 	private:
 		int	m_raw_bits;
 		static const int m_fractional_bits = 8;
+	
 	public:
 		Fixed();
 		Fixed(const Fixed& other);
