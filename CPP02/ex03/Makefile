@@ -1,11 +1,13 @@
-NAME		=	Towards_a_more_useful_fixed-point_number_class
+NAME		=	BSP
 
 CXX			=	c++
 
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CFLAGS		=	#-Wall -Wextra -Werror -std=c++98
 
 SRC			=	main.cpp\
 				Fixed.cpp\
+				Point.cpp\
+				bsp.cpp\
 
 OBJS_DIR	=	objs
 

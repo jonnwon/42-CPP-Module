@@ -3,25 +3,24 @@
 Fixed::Fixed()
 :m_raw_bits(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "[Fixed] : Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int n) : m_raw_bits(n << m_fractional_bits)
 {
-    std::cout << "Int constructor called" << std::endl;
+    std::cout << "[Fixed] : Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float n) : m_raw_bits(roundf(n * (1 << m_fractional_bits)))
 {
-	std::cout << "Float constructor called" << std::endl;
+	std::cout << "[Fixed] : Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other)
 {
-	std::cout << "Copy constructor called" <<std::endl;
+	std::cout << "[Fixed] : Copy constructor called" <<std::endl;
 	*this = other;
 }
-
 
 Fixed& Fixed::operator=(const Fixed& rhs)
 {
@@ -33,12 +32,12 @@ Fixed& Fixed::operator=(const Fixed& rhs)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "[Fixed] : Destructor called" << std::endl;
 }
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	std::cout << "[Fixed] : getRawBits member function called" << std::endl;
 	return (m_raw_bits);
 }
 
