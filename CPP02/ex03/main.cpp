@@ -3,6 +3,7 @@
 
 int main(void)
 {
+
 //	Point a(0, 0);
 //	Point b(5, 0);
 //	Point c(2, 5);
