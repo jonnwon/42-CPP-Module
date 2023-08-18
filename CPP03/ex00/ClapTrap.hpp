@@ -4,20 +4,13 @@
 #include <iostream>
 #include <string>
 
-/*
-A();
-~A();
-A(const A &a);		// 복사 생성자
-A &operator=(const A &a); // 복사 대입 연산자
-*/
-
 class ClapTrap
 {
 	private:
 		std::string m_name;
-		unsigned int	m_hit_points;	 // 10
-		unsigned int	m_energy_points; // 10
-		unsigned int	m_attack_demage; // 0
+		unsigned int	m_hit_points;
+		unsigned int	m_energy_points;
+		unsigned int	m_attack_demage;
 
 	public:
 		ClapTrap();
