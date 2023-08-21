@@ -1,6 +1,6 @@
 NAME		=	Aaaaand..._OPEN!
 
-CC			=	c++
+CXX			=	c++
 
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
@@ -14,12 +14,12 @@ OBJS	=	$(SRC:%.cpp=$(OBJS_DIR)/%.o)
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
 
 
 $(OBJS_DIR)/%.o	:	%.cpp
 	mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CXX) $(CFLAGS) -c $^ -o $@
 
 clean	:
 	rm -rf $(OBJS_DIR)

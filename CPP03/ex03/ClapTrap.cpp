@@ -1,9 +1,9 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-:m_name("defalut"), m_hit_points(10), m_energy_points(10), m_attack_demage(0)
+:m_name("defualt"), m_hit_points(10), m_energy_points(10), m_attack_demage(0)
 {
-	std::cout << "[ClapTrap] : Defualt construcor called, name: " << m_name << std::endl;
+	std::cout << "[ClapTrap] : Defualt construcor called, name: "<< m_name << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)

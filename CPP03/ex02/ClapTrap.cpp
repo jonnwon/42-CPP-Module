@@ -3,13 +3,13 @@
 ClapTrap::ClapTrap()
 :m_name("defalut"), m_hit_points(10), m_energy_points(10), m_attack_demage(0)
 {
-	std::cout << "[ClapTrap] : Defualt construcor called, name: defalut" << std::endl;
+	std::cout << "[ClapTrap] : Defualt construcor called, name: " << m_name << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 :m_name(name), m_hit_points(10), m_energy_points(10), m_attack_demage(0)
 {
-	std::cout << "[ClapTrap] : Constructor called, name: " << name << std::endl;
+	std::cout << "[ClapTrap] : Constructor called, name: " << m_name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
@@ -48,7 +48,6 @@ void ClapTrap::attack(const std::string& target)
 		std::cout << "ClapTrap " << m_name << " has no energy points!" << std::endl;
 		return ;
 	}
-//ClapTrap <name> attacks <target>, causing <damage> points of damage!
 	std::cout << "ClapTrap " << m_name << " attacks " << target << ", causing " << m_attack_demage << " points of damage!" << std::endl;
 	m_energy_points--;
 	print_status();

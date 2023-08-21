@@ -2,8 +2,6 @@
 
 int main()
 {
-	std::cout << "main test" << std::endl;
-
 	ScavTrap a("HI");
 	ScavTrap b = a;
 	ScavTrap c("Hello");

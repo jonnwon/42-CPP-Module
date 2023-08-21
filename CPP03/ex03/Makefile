@@ -1,4 +1,4 @@
-NAME		=	Aaaaand..._OPEN!
+NAME		=	Now_it’s_weird!
 
 CXX			=	c++
 
@@ -8,6 +8,7 @@ SRC			=	main.cpp\
 				ClapTrap.cpp\
 				ScavTrap.cpp\
 				FragTrap.cpp\
+				DiamondTrap.cpp\
 
 OBJS_DIR	=	objs
 
