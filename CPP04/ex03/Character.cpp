@@ -19,9 +19,7 @@ Character::Character(std::string const& name)
 }
 
 
-//(cmd.compare("EXIT") == 0 
-
-Character::Character(const Character& other)		// Need correction
+Character::Character(const Character& other)
 {
 	std::cout << "[Character] : Copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
@@ -38,10 +36,9 @@ Character::Character(const Character& other)		// Need correction
 	}
 }
 
-Character& Character::operator=(const Character& rhs)		// Need test 
+Character& Character::operator=(const Character& rhs)
 {
 	std::cout << "[Character] : Copy assignment operator called" << std::endl;
-	std::cout << "test: "<< rhs.getName() << std::endl;
 	if (this != &rhs)
 	{
 		this->name = rhs.name;

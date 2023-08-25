@@ -7,6 +7,7 @@
 int main()
 {
 	Character a;
+
 	AMateria *t = new Ice();
 	AMateria *q = new Cure();
 	AMateria *p = new Cure();
@@ -39,7 +40,7 @@ int main()
 	for (int i = 0; i < 4; i++)
 		b.print_slot_idx(i);
 
-	b.unequip(0);
+//	b.unequip(0);
 
 	b.print_slot_addr();
 
@@ -52,6 +53,7 @@ int main()
 //
 
 //	exit(1);
+
 
 	system("leaks Interface_recap");
 
