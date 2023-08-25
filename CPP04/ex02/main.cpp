@@ -1,15 +1,12 @@
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
-#include <iostream>
 
 int main()
 {
 	int cnt;
 
-	// input number
+	// Input number
 	while (1)
 	{
 		std::cout << "Please enter the number of animals: ";
@@ -35,8 +32,8 @@ int main()
 			animals[i] = new Cat();
 	}
 
-	// print test
-	std::cout << std::endl << "=====Print test=====" << std::endl;
+	// Makesound test
+	std::cout << std::endl << "=====Makesound test=====" << std::endl;
 	for (int i = 0; i < cnt; i++)
 	{
 		std::cout << "i[" << i << "]: " << animals[i]->get_type() << std::endl;
@@ -52,7 +49,7 @@ int main()
 	}
 
 	
-	// deep copy test
+	// Deep copy test
 	std::cout << std::endl << "=====Deep copy test=====" << std::endl;
 
 	Cat originalCat;

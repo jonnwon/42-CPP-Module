@@ -36,9 +36,3 @@ std::string	Animal::get_type()
 {
 	return type;
 }
-
-void	Animal::set_type(std::string type)
-{
-	this->type = type;
-}
-

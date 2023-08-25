@@ -1,5 +1,5 @@
 #ifndef CAT_HPP
-#define CAT_HPP
+# define CAT_HPP
 
 #include "Animal.hpp"
 #include "Brain.hpp"
@@ -12,10 +12,9 @@ class Cat : public Animal
 		Cat& operator=(const Cat& rhs);
 		~Cat();
 
-		virtual void makeSound() const;
-
-		std::string get_idea(int i);
-		void	set_idea(int i, const std::string& idea);
+		virtual void	makeSound() const;
+		std::string		get_idea(int i);
+		void			set_idea(int i, const std::string& idea);
 
 	private:
 		Brain*	cat_brain;

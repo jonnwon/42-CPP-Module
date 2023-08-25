@@ -13,7 +13,6 @@ WrongAnimal::WrongAnimal(const WrongAnimal& other)
 	*this = other;
 }
 
-
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& rhs)
 {
 	std::cout << "[WrongAnimal] : Copy assignment operator called" << std::endl;

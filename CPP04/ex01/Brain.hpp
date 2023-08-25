@@ -11,8 +11,8 @@ class Brain
 		Brain& operator=(const Brain& rhs);
 		~Brain();
 
-		void	set_Idea_At_Index(int index, const std::string& idea);
-		std::string getIdeaAtIndex(int index) const;
+		void		set_Idea_At_Index(int index, const std::string& idea);
+		std::string	getIdeaAtIndex(int index) const;
 
 	private:
 		std::string ideas[100];

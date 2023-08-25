@@ -12,10 +12,9 @@ class Dog : public Animal
 		Dog& operator=(const Dog& rhs);
 		~Dog();
 
-		virtual void makeSound() const;
-
-		std::string get_idea(int i);
-		void	set_idea(int i, const std::string& idea);
+		virtual void	makeSound() const;
+		std::string		get_idea(int i);
+		void			set_idea(int i, const std::string& idea);
 
 	private:
 		Brain* dog_brain;

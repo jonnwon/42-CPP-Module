@@ -14,7 +14,6 @@ Cat::Cat(const Cat& other)
 	*this = other;
 }
 
-
 Cat& Cat::operator=(const Cat& rhs)
 {
 	std::cout << "[Cat] : Copy assignment operator called" << std::endl;

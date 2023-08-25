@@ -9,7 +9,7 @@ int main()
 {
 	int cnt;
 
-	// input number
+	// Input number
 	while (1)
 	{
 		std::cout << "Please enter the number of animals: ";
@@ -35,8 +35,8 @@ int main()
 			animals[i] = new Cat();
 	}
 
-	// print test
-	std::cout << std::endl << "=====Print test=====" << std::endl;
+	// Makesound test
+	std::cout << std::endl << "=====Makesound test=====" << std::endl;
 	for (int i = 0; i < cnt; i++)
 	{
 		std::cout << "i[" << i << "]: " << animals[i]->get_type() << std::endl;
@@ -52,13 +52,14 @@ int main()
 	}
 
 	
-	// deep copy test
+	// Deep copy test
 	std::cout << std::endl << "=====Deep copy test=====" << std::endl;
 
 	Cat originalCat;
 	originalCat.makeSound();
 
-	Cat copiedCat = originalCat;		// Copy constructor called
+	Cat copiedCat;
+	copiedCat = originalCat;		// Copy constructor called
 
 
 	copiedCat.set_idea(1, "tttest");	// Modify the copiedCat's brain
@@ -67,5 +68,16 @@ int main()
 	std::cout << originalCat.get_idea(1) << std::endl;
 	std::cout << copiedCat.get_idea(1) << std::endl;
 
+	std::cout << originalCat.get_idea(2) << std::endl;
+	std::cout << copiedCat.get_idea(2) << std::endl;
+
+	Cat copiedCat2;
+	copiedCat2 = copiedCat;
+
+	std::cout << copiedCat.get_idea(1) << std::endl;
+	std::cout << copiedCat2.get_idea(1) << std::endl;
+
+
+//	system("leaks I_don’t_want_to_set_the_world_on_fire");
 	return 0;
 }

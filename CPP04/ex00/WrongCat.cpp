@@ -1,4 +1,5 @@
 #include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 
 WrongCat::WrongCat()
 {
@@ -6,13 +7,11 @@ WrongCat::WrongCat()
 	type = "WrongCat";
 }
 
-
 WrongCat::WrongCat(const WrongCat& other)
 {
 	std::cout << "[WrongCat] : Copy constructor called" << std::endl;
 	*this = other;
 }
-
 
 WrongCat& WrongCat::operator=(const WrongCat& rhs)
 {
@@ -32,4 +31,9 @@ WrongCat::~WrongCat()
 void WrongCat::makeSound() const
 {
 	std::cout << "[WrongCat] : make Sound" << std::endl;
+}
+
+std::string	WrongAnimal::getType() const
+{
+	return type;
 }

@@ -8,11 +8,9 @@ Animal::Animal()
 
 Animal::Animal(const Animal& other)
 {
-
 	std::cout << "[Animal] : Copy constructor called" << std::endl;
 	*this = other;
 }
-
 
 Animal& Animal::operator=(const Animal& rhs)
 {
@@ -36,9 +34,3 @@ std::string	Animal::get_type()
 {
 	return type;
 }
-
-void	Animal::set_type(std::string type)
-{
-	this->type = type;
-}
-

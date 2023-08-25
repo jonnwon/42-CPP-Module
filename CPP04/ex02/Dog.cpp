@@ -8,13 +8,11 @@ Dog::Dog()
 	dog_brain = new Brain();
 }
 
-
 Dog::Dog(const Dog& other)
 {
 	std::cout << "[Dog] : Copy constructor called" << std::endl;
 	*this = other;
 }
-
 
 Dog& Dog::operator=(const Dog& rhs)
 {

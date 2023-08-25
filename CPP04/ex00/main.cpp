@@ -6,13 +6,32 @@
 
 int main()
 {
-	Animal *a = new Cat;
-	WrongAnimal *b = new WrongCat;
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
-	a->makeSound();
-	b->makeSound();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
 
-	delete a;
-	delete b;
+	delete meta;
+	delete j;
+	delete i;
+
+	const WrongAnimal* wa = new WrongAnimal();
+	const WrongAnimal* wc = new WrongCat();
+
+	std::cout << wa->getType() << " " << std::endl;
+	std::cout << wc->getType() << " " << std::endl;
+	wa->makeSound();
+	wc->makeSound(); //will output the wronganimal sound!
+
+	delete wa;
+	delete wc;
+
+//	system("leaks Polymorphism");
+
 	return 0;
 }

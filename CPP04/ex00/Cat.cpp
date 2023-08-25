@@ -6,13 +6,11 @@ Cat::Cat()
 	type = "Cat";
 }
 
-
 Cat::Cat(const Cat& other)
 {
 	std::cout << "[Cat] : Copy constructor called" << std::endl;
 	*this = other;
 }
-
 
 Cat& Cat::operator=(const Cat& rhs)
 {

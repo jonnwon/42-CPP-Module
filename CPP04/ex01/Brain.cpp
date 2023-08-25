@@ -39,5 +39,3 @@ std::string Brain::getIdeaAtIndex(int index) const
 {
 	return ideas[index];
 }
-
-
