@@ -18,14 +18,19 @@ class Character : public ICharacter
 		virtual ~Character();
 
 		virtual std::string const & getName() const;
-//		virtual void equip(AMateria* m);
-//		virtual void unequip(int idx);
-//		virtual void use(int idx, ICharacter& target);
+		virtual void equip(AMateria* m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter& target);
 
 		void	print_slot_addr()
 		{
 			for (int i = 0; i < 4; i++)
-				printf("i : %p\n", slot[i]);
+				printf("i[%d] : %p\n", i, slot[i]);
+		}
+
+		void	print_slot_idx(int idx)
+		{
+			std::cout << slot[idx]->getType() << std::endl;
 		}
 };
 

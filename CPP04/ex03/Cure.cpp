@@ -1,7 +1,7 @@
 #include "Cure.hpp"
 
 Cure::Cure()
-:AMateria("ice")
+:AMateria("cure")
 {
 	std::cout << "[Cure] : Defualt construcor called" << std::endl;
 }
