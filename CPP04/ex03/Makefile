@@ -4,12 +4,15 @@ CC			=	c++
 
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 CFLAGS		+= -g
+#CFLAGS		+= -fsanitize=address
+
 
 SRC			=	main.cpp\
 				AMateria.cpp\
 				Ice.cpp\
 				Cure.cpp\
 				Character.cpp\
+				MateriaSource.cpp\
 
 OBJS_DIR	=	objs
 

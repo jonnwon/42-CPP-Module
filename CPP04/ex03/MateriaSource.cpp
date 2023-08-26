@@ -1,4 +1,6 @@
 #include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 MateriaSource::MateriaSource()
 {
@@ -29,7 +31,6 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& rhs)
 	std::cout << "[MateriaSource] : Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		this->name = rhs.name;
 		for (int i = 0; i < 4; i++)
 		{
 			if (slot[i] != NULL)
@@ -46,4 +47,41 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& rhs)
 	return *this;
 }
 
+MateriaSource::~MateriaSource()
+{
+	std::cout << "[MateriaSource] : Destructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (slot[i] != NULL)
+		{
+			delete slot[i];
+			slot[i] = NULL;
+		}
+	}
+}
 
+void MateriaSource::learnMateria(AMateria* m)
+{
+	std::cout << "[MateriaSource] : learnMateria called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (slot[i] == NULL)
+		{
+			slot[i] = m;
+			return ;
+		}
+	}
+}
+
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+	std::cout << "[MateriaSource] : createMateria called" << std::endl;
+	if (type != "cure" && type != "ice")
+		return NULL;
+	for (int i = 0; i < 4; i++)
+	{
+		if (slot[i] != NULL && slot[i]->getType().compare(type) == 0)
+			return slot[i]->clone();
+	}
+	return NULL;
+}

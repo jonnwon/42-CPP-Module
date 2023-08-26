@@ -1,5 +1,7 @@
 #include "Cure.hpp"
 
+#include <stdio.h>		// delete
+
 Cure::Cure()
 :AMateria("cure")
 {
@@ -29,6 +31,7 @@ AMateria* Cure::clone() const
 {
 	Cure *newCure = new Cure();
 
+	printf("new cure: %p\n", newCure);			// delete
 	return newCure;
 }
 

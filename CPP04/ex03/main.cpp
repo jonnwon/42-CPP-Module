@@ -1,61 +1,45 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
+#include "MateriaSource.hpp"
 
 #include <stdio.h>
 
 int main()
 {
-	Character a;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 
-	AMateria *t = new Ice();
-	AMateria *q = new Cure();
-	AMateria *p = new Cure();
-	AMateria *s = new Ice();
-	AMateria *j = new Cure();
+	src->print_slot();
+
+	Character* me = new Character("me");
+	AMateria* tmp;
+
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+
+	ICharacter* bob = new Character("bob");
+
+	me->use(0, *bob);
+	me->use(1, *bob);
 	
+	me->print_slot_addr();
 
+	me->unequip(1);
+	me->use(1, *bob);
 
-//	std::cout << a.getName() << std::endl;
+	me->print_slot_addr();
 
-	a.equip(t);
-	a.equip(q);
-	a.equip(p);
-	a.equip(s);
-	a.equip(j);
-	for (int i = 0; i < 4; i++)
-		a.print_slot_idx(i);
-
-//	a.print_slot_idx(0);
-//	a.print_slot_idx(1);
-//	a.print_slot_idx(2);
-
-	a.print_slot_addr();
-
-	Character b;
-
-	b = a;
-
-	b.print_slot_addr();
-	for (int i = 0; i < 4; i++)
-		b.print_slot_idx(i);
-
-//	b.unequip(0);
-
-	b.print_slot_addr();
-
-	b.use(3, a);
-//
-//	b.print_slot_idx(0);
-//	b.print_slot_idx(1);
-//	a.print_slot_idx(2);
-//
-//
-
-//	exit(1);
-
+	delete bob;
+	delete me;
+	delete src;
+	delete tmp;
 
 	system("leaks Interface_recap");
-
 	return 0;
 }
+

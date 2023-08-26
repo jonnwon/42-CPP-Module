@@ -98,10 +98,6 @@ void Character::unequip(int idx)
 		slot[idx] = NULL;
 }
 
-//void Character::use(int idx, ICharacter &target) {
-//  slot_[idx]->use(target);
-//}
-
 void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx > 3)
