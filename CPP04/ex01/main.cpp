@@ -1,29 +1,10 @@
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
-#include <iostream>
 
 int main()
 {
-	int cnt;
-
-	// Input number
-	while (1)
-	{
-		std::cout << "Please enter the number of animals: ";
-		std::cin >> cnt;
-		if (cnt % 2 == 0)
-			break ;
-		else
-		{
-			std::cout << "Error: No even number!" << std::endl;
-			continue;
-		}
-	}
-	std::cout << "cnt: " << cnt << std::endl;
-
+	int cnt = 4;
 	Animal *animals[cnt];
 
 	std::cout << std::endl << "=====Constructor test=====" << std::endl;
@@ -59,23 +40,32 @@ int main()
 	originalCat.makeSound();
 
 	Cat copiedCat;
-	copiedCat = originalCat;		// Copy constructor called
+	copiedCat = originalCat;		// Copy assignment operator test
 
 
 	copiedCat.set_idea(1, "tttest");	// Modify the copiedCat's brain
 
 	// Output the brain contents of both original and copied cats
-	std::cout << originalCat.get_idea(1) << std::endl;
-	std::cout << copiedCat.get_idea(1) << std::endl;
+	std::cout << "---------------------------" << std::endl;
+	std::cout << "originalCat's idea: " << originalCat.get_idea(1) << std::endl;
+	std::cout << "copiedCat's idea: " << copiedCat.get_idea(1) << std::endl;
 
-	std::cout << originalCat.get_idea(2) << std::endl;
-	std::cout << copiedCat.get_idea(2) << std::endl;
+	std::cout << "originalCat's idea: " << originalCat.get_idea(2) << std::endl;
+	std::cout << "copiedCat's idea: "<< copiedCat.get_idea(2) << std::endl;
+	std::cout << "---------------------------" << std::endl;
 
-	Cat copiedCat2;
-	copiedCat2 = copiedCat;
+	Cat copiedCat2 = copiedCat;			// Copy constructor test
 
-	std::cout << copiedCat.get_idea(1) << std::endl;
-	std::cout << copiedCat2.get_idea(1) << std::endl;
+	std::cout << "copiedCat: " << copiedCat.get_idea(1) << std::endl;
+	std::cout << "copiedCat2: " << copiedCat2.get_idea(1) << std::endl;
+
+
+	copiedCat2.set_idea(1, "aaaaa");	// Modify the copiedCat2's brain
+	
+	std::cout << "--------Change idea--------"  << std::endl;
+
+	std::cout << "copiedCat: " << copiedCat.get_idea(1) << std::endl;
+	std::cout << "copiedCat2: " << copiedCat2.get_idea(1) << std::endl;
 
 
 //	system("leaks I_don’t_want_to_set_the_world_on_fire");

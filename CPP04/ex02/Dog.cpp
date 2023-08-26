@@ -8,11 +8,13 @@ Dog::Dog()
 	dog_brain = new Brain();
 }
 
+
 Dog::Dog(const Dog& other)
 {
 	std::cout << "[Dog] : Copy constructor called" << std::endl;
-	*this = other;
+	dog_brain = new Brain(*other.dog_brain);
 }
+
 
 Dog& Dog::operator=(const Dog& rhs)
 {
@@ -23,7 +25,7 @@ Dog& Dog::operator=(const Dog& rhs)
 		delete dog_brain;
 		dog_brain = new Brain(*rhs.dog_brain);
 	}
-	return (*this);
+	return *this;
 }
 
 Dog::~Dog()

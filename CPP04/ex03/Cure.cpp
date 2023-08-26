@@ -1,7 +1,5 @@
 #include "Cure.hpp"
 
-#include <stdio.h>		// delete
-
 Cure::Cure()
 :AMateria("cure")
 {
@@ -30,13 +28,8 @@ Cure::~Cure()
 AMateria* Cure::clone() const
 {
 	Cure *newCure = new Cure();
-
-	printf("new cure: %p\n", newCure);			// delete
 	return newCure;
 }
-
-// Cure: "* heals <name>¡¯s wounds *"
-
 
 void Cure::use(ICharacter& target)
 {

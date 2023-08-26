@@ -21,18 +21,6 @@ class Character : public ICharacter
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
-
-		// delete
-		void	print_slot_addr()
-		{
-			for (int i = 0; i < 4; i++)
-				printf("i[%d] : %p\n", i, slot[i]);
-		}
-
-		void	print_slot_idx(int idx)
-		{
-			std::cout << slot[idx]->getType() << std::endl;
-		}
 };
 
 #endif

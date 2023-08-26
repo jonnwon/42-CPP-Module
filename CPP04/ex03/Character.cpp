@@ -20,6 +20,7 @@ Character::Character(std::string const& name)
 
 
 Character::Character(const Character& other)
+:name(other.name)
 {
 	std::cout << "[Character] : Copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
@@ -60,7 +61,7 @@ Character& Character::operator=(const Character& rhs)
 
 Character::~Character()
 {
-	std::cout << "[Character] : Destructor called" << std::endl;
+	std::cout << "[Character] : Destructor called. name: " << name << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (slot[i] != NULL)

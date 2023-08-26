@@ -1,4 +1,4 @@
-NAME		=	Abstract_class
+NAME		=	I_don’t_want_to_set_the_world_on_fire
 
 CC			=	c++
 

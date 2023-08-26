@@ -13,7 +13,7 @@ class WrongAnimal
 		WrongAnimal();
 		WrongAnimal(const WrongAnimal& other);
 		WrongAnimal& operator=(const WrongAnimal& rhs);
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 
 		void	makeSound() const;
 };

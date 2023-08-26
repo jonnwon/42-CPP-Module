@@ -3,9 +3,7 @@ NAME		=	Interface_recap
 CC			=	c++
 
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
-CFLAGS		+= -g
-#CFLAGS		+= -fsanitize=address
-
+#CFLAGS		+= 	-g
 
 SRC			=	main.cpp\
 				AMateria.cpp\
