@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonchoi <jonchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 22:32:48 by jonchoi           #+#    #+#             */
-/*   Updated: 2023/07/22 04:54:20 by jonchoi          ###   ########.fr       */
+/*   Created: 2023/07/23 19:03:18 by jonchoi           #+#    #+#             */
+/*   Updated: 2023/08/13 16:34:07 by jonchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <locale>
+#include "Zombie.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
-	if (argc < 2)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else
+	/* stack test */
+	Zombie stack("Stack3");
+	stack.announce();
+
+	/* heap test */
+	Zombie *heap;
+
+	heap = newZombie("Heap");
+	heap->announce();
+	delete heap;
+
+	/* randomChump test */
+	randomChump("Stack1");
+
+	/* stackframe test*/
 	{
-		for (int i = 1 ; i < argc ; i++)
-		{
-			for (int j = 0 ; argv[i][j] ; j++)
-				std::cout << static_cast<char>(std::toupper(argv[i][j]));
-		}
+		Zombie stack("Stack2");
+		stack.announce();
 	}
-	std::cout << std::endl;
+
 	return (0);
 }
-
