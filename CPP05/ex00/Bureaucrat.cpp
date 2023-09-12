@@ -1,12 +1,9 @@
 #include "Bureaucrat.hpp"
 
-#define MAX_GRADE 1
-#define MIN_GRADE 150
-
 Bureaucrat::Bureaucrat()
-	:_name("Default"), _grade(10)
+:_name("Default"), _grade(MIN_GRADE)
 {
-	std::cout << "[Bureaucrat] : Default Constructor called" << std::endl;
+	std::cout << "[Bureaucrat] : Default constructor called" << std::endl;
 };
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
@@ -17,6 +14,13 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 		throw Bureaucrat::GradeTooHighException();
 	else if (_grade > MIN_GRADE)
 		throw Bureaucrat::GradeTooLowException();
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat& other)
+{
+	std::cout << "[Bureaucrat] : Copy constructor called" << std::endl;
+
+	*this = other;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
@@ -54,12 +58,12 @@ void Bureaucrat::decrementGrade()
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high!";
+	return "[Bureaucrat] : Grade is too high!";
 };
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low!";
+	return "[Bureaucrat] : Grade is too low!";
 };
 
 std::ostream& operator <<(std::ostream& outputStream, const Bureaucrat& rhs)
