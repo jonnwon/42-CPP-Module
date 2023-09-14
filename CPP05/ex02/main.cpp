@@ -30,13 +30,14 @@ void	RobotomyRequestForm_test()
 	try
 	{
 		Bureaucrat king("King", 1);
+		Bureaucrat man("man", 149);
 		RobotomyRequestForm file2("TEST");
 
 		std::cout << file2 << std::endl;
-		king.signForm(file2);
+		king.signForm(file2);	// can sign
 		std::cout << file2 << std::endl;
 
-		king.executeForm(file2);
+		man.executeForm(file2);	// not execute
 	}
 	catch (std::exception &e)
 	{
@@ -52,10 +53,10 @@ void	PresidentialPardonForm_test()
 		PresidentialPardonForm file3("TEST");
 
 		std::cout << file3 << std::endl;
-		king.signForm(file3);
+		king.signForm(file3);		// can sign
 		std::cout << file3 << std::endl;
 
-		king.executeForm(file3);
+		king.executeForm(file3);	// can execute
 	}
 	catch (std::exception &e)
 	{
