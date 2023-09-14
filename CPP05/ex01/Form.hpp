@@ -2,7 +2,6 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
-#include <exception>
 
 class Form
 {
