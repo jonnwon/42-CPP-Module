@@ -8,6 +8,8 @@ SRC			=	main.cpp\
 				Bureaucrat.cpp\
 				AForm.cpp\
 				ShrubberyCreationForm.cpp\
+				RobotomyRequestForm.cpp\
+				PresidentialPardonForm.cpp\
 
 OBJS_DIR	=	objs
 

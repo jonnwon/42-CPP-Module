@@ -10,7 +10,6 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 	_target = "default";
 }
 
-
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 :AForm("ShrubberyCreationForm", 145, 137)
 {
@@ -25,14 +24,11 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 	*this = other;
 }
 
-
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs)
 {
 	std::cout << "[ShrubberyCreationForm] : Copy assignment operator called" << std::endl;
 	if (this != &rhs)
-	{
 		_target = rhs._target;
-	}
 	return *this;
 }
 
