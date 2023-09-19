@@ -18,6 +18,8 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& rhs)
 	if (this != &rhs)
 	{
 		_input = rhs._input;
+		_dValue  = rhs._dValue;
+
 	}
 	return *this;
 }
@@ -29,26 +31,21 @@ ScalarConverter::~ScalarConverter()
 ScalarConverter::ScalarConverter(std::string input)
 :_input(input)
 {
+	_dValue = std::atof(_input.c_str());
 }
 
 char ScalarConverter::toChar() const
 {
-	double _fValue;
-
-	_fValue = std::atof(_input.c_str());
-	if (!isprint(_fValue) && _fValue >= std::numeric_limits<char>::min() \
-			&& _fValue <= std::numeric_limits<char>::max())
+	if (!isprint(_dValue) && _dValue >= std::numeric_limits<char>::min() \
+			&& _dValue <= std::numeric_limits<char>::max())
 		throw NondisplayableException();
-	if (!isprint(_fValue))
+	if (!isprint(_dValue))
 		throw ImpossibleException();
-	return static_cast<char>(_fValue);
+	return static_cast<char>(_dValue);
 }
 
 int		ScalarConverter::toInt() const
 {
-	double _dValue;
-
-	_dValue = std::atof(_input.c_str());
 	if (_dValue != _dValue)
 		throw ImpossibleException();
 	else if (_dValue == std::numeric_limits<double>::infinity()\
@@ -63,10 +60,6 @@ int		ScalarConverter::toInt() const
 
 float	ScalarConverter::toFloat() const
 {
-	double _dValue;
-
-	_dValue = std::atof(_input.c_str());
-
 	if (_dValue == std::numeric_limits<double>::infinity()\
 		|| _dValue == -std::numeric_limits<double>::infinity())
 		return static_cast<float>(_dValue);
@@ -79,10 +72,6 @@ float	ScalarConverter::toFloat() const
 
 double	ScalarConverter::toDouble() const
 {
-	double _dValue;
-
-	_dValue = std::atof(_input.c_str());
-
 	if (_dValue == std::numeric_limits<double>::infinity()\
 		|| _dValue == -std::numeric_limits<double>::infinity())
 		return static_cast<double>(_dValue);
@@ -148,4 +137,3 @@ std::ostream& operator <<(std::ostream& outputStream, const ScalarConverter& rhs
 	}
 	return outputStream;
 }
-

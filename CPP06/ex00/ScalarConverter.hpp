@@ -9,6 +9,7 @@ class ScalarConverter
 {
 	private:
 		std::string _input;
+		double		_dValue;
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter& other);
 		ScalarConverter& operator=(const ScalarConverter& rhs);
