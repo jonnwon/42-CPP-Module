@@ -67,12 +67,21 @@ float	ScalarConverter::toFloat() const
 
 	_dValue = std::atof(_input.c_str());
 
+	/*
 	if (_dValue == std::numeric_limits<double>::infinity()\
 		|| _dValue == -std::numeric_limits<double>::infinity())
 		return static_cast<float>(_dValue);
+	*/
+
+//	if (_dValue < std::numeric_limits<float>::min()\
+//			|| _dValue > std::numeric_limits<float>::max())
+//		throw ImpossibleException();
+
+	/*
 	if (_dValue < -std::numeric_limits<float>::max()\
 			|| _dValue > std::numeric_limits<float>::max())
 		throw ImpossibleException();
+	*/
 	return static_cast<float>(_dValue);
 }
 
@@ -83,12 +92,15 @@ double	ScalarConverter::toDouble() const
 
 	_dValue = std::atof(_input.c_str());
 
+	/*
 	if (_dValue == std::numeric_limits<double>::infinity()\
 		|| _dValue == -std::numeric_limits<double>::infinity())
 		return static_cast<double>(_dValue);
-	if (_dValue < -std::numeric_limits<double>::max()\
-			|| _dValue > std::numeric_limits<double>::max())
-		throw ImpossibleException();
+	*/
+
+//	if (_dValue < -std::numeric_limits<double>::max()\
+//			|| _dValue > std::numeric_limits<double>::max())
+//		throw ImpossibleException();
 	return static_cast<double>(_dValue);
 }
 
@@ -132,9 +144,6 @@ std::ostream& operator <<(std::ostream& outputStream, const ScalarConverter& rhs
 	try
 	{
 		outputStream << "float: " << std::fixed << std::setprecision(1) << rhs.toFloat() << "f" << std::endl;
-
-//		outputStream << "float: " << rhs.toFloat() << "f" << std::endl;
-
 	}
 	catch (ScalarConverter::ImpossibleException &e)
 	{
@@ -144,13 +153,11 @@ std::ostream& operator <<(std::ostream& outputStream, const ScalarConverter& rhs
 	try
 	{
 		outputStream << "double: " << std::fixed << std::setprecision(1) << rhs.toDouble() << std::endl;
-//		outputStream << "double: " << rhs.toDouble() << std::endl;
 	}
 	catch (ScalarConverter::ImpossibleException &e)
 	{
 		outputStream << e.what() << std::endl;
 	}
-	
 	return outputStream;
 }
 
