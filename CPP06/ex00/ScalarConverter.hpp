@@ -8,20 +8,16 @@
 class ScalarConverter
 {
 	private:
-		std::string _input;
-		double		_dValue;
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter& other);
 		ScalarConverter& operator=(const ScalarConverter& rhs);
+		~ScalarConverter();
 	
 	public:
-		ScalarConverter(std::string input);
-		~ScalarConverter();
-
-		char	toChar() const;
-		int		toInt() const;
-		float	toFloat() const;
-		double	toDouble() const;
+		static char		toChar(double _dValue);
+		static int		toInt(double _dValue);
+		static float	toFloat(double _dValue);
+		static double	toDouble(double _dValue);
 
 		class ImpossibleException : public std::exception
 		{
@@ -34,8 +30,8 @@ class ScalarConverter
 			public:
 				virtual const char* what() const throw();
 		};
-};
 
-std::ostream& operator <<(std::ostream& outputStream, const ScalarConverter& rhs);
+		static void		conversion(double _dValue);
+};
 
 #endif

@@ -15,12 +15,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter& other)
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& rhs)
 {
-	if (this != &rhs)
-	{
-		_input = rhs._input;
-		_dValue  = rhs._dValue;
-
-	}
+	(void)rhs;
 	return *this;
 }
 
@@ -28,13 +23,7 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
-ScalarConverter::ScalarConverter(std::string input)
-:_input(input)
-{
-	_dValue = std::atof(_input.c_str());
-}
-
-char ScalarConverter::toChar() const
+char ScalarConverter::toChar(double _dValue)
 {
 	if (!isprint(_dValue) && _dValue >= std::numeric_limits<char>::min() \
 			&& _dValue <= std::numeric_limits<char>::max())
@@ -44,7 +33,7 @@ char ScalarConverter::toChar() const
 	return static_cast<char>(_dValue);
 }
 
-int		ScalarConverter::toInt() const
+int		ScalarConverter::toInt(double _dValue)
 {
 	if (_dValue != _dValue)
 		throw ImpossibleException();
@@ -58,7 +47,7 @@ int		ScalarConverter::toInt() const
 }
 
 
-float	ScalarConverter::toFloat() const
+float	ScalarConverter::toFloat(double _dValue)
 {
 	if (_dValue == std::numeric_limits<double>::infinity()\
 		|| _dValue == -std::numeric_limits<double>::infinity())
@@ -70,7 +59,7 @@ float	ScalarConverter::toFloat() const
 }
 
 
-double	ScalarConverter::toDouble() const
+double	ScalarConverter::toDouble(double _dValue)
 {
 	if (_dValue == std::numeric_limits<double>::infinity()\
 		|| _dValue == -std::numeric_limits<double>::infinity())
@@ -91,49 +80,47 @@ const char* ScalarConverter::NondisplayableException::what() const throw()
 	return "Non displayable";
 }
 
-
-std::ostream& operator <<(std::ostream& outputStream, const ScalarConverter& rhs)
+void	ScalarConverter::conversion(double _dValue)
 {
 	try
 	{
-		outputStream << "char: ";
-		char res = rhs.toChar();
-		outputStream << "'" << res << "'" << std::endl;
+		std::cout << "char: ";
+		char res = ScalarConverter::toChar(_dValue);
+		std::cout << "'" << res << "'" << std::endl;
 	}
 	catch (ScalarConverter::ImpossibleException &e)
 	{
-		outputStream << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	catch (ScalarConverter::NondisplayableException &e)
 	{
-		outputStream << e.what() << std::endl;
-	}
-	
-	try
-	{
-		outputStream << "int: " << rhs.toInt() << std::endl;
-	}
-	catch (ScalarConverter::ImpossibleException &e)
-	{
-		outputStream << e.what() << std::endl;;
+		std::cout << e.what() << std::endl;
 	}
 
 	try
 	{
-		outputStream << "float: " << std::fixed << std::setprecision(1) << rhs.toFloat() << "f" << std::endl;
+		std::cout << "int: " << ScalarConverter::toInt(_dValue) << std::endl;
 	}
 	catch (ScalarConverter::ImpossibleException &e)
 	{
-		outputStream << e.what() << std::endl;
+		std::cout << e.what() << std::endl;;
 	}
 
 	try
 	{
-		outputStream << "double: " << std::fixed << std::setprecision(1) << rhs.toDouble() << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << toFloat(_dValue) << "f" << std::endl;
 	}
 	catch (ScalarConverter::ImpossibleException &e)
 	{
-		outputStream << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-	return outputStream;
+
+	try
+	{
+		std::cout << "double: " << std::fixed << std::setprecision(1) << toDouble(_dValue) << std::endl;
+	}
+	catch (ScalarConverter::ImpossibleException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
