@@ -42,7 +42,6 @@ std::string PresidentialPardonForm::getTarget() const
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	std::cout << "[PresidentialPardonForm] : execute called" << std::endl;
-    std::srand(static_cast<unsigned int>(std::time(0)));
 
 	if (getSigned() == false)
 		throw AForm::NotSignedException();
