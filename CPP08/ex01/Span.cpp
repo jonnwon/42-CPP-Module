@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <stdexcept>
 
 Span::Span()
 {
@@ -6,7 +7,7 @@ Span::Span()
 }
 
 Span::Span(unsigned int N)
-:_N(N)
+:_N(N), _index(0)
 {
 	std::cout << "Constructor called" << std::endl;
 }
@@ -23,7 +24,7 @@ Span&	Span::operator=(const Span& rhs)
 	{
 		_v = rhs._v;
 		_N = rhs._N;
-		//_index = rhs._index;
+		_index = rhs._index;
 	}
 	return *this;
 }
@@ -35,5 +36,9 @@ Span::~Span()
 
 void	Span::addNumber(int n)
 {
+	if (_index == _N)
+		throw std::out_of_range("Error: Full numbers");
+//		throw std::exception();		// full
 	_v.push_back(n);
+	_index++;
 }

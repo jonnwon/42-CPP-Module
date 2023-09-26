@@ -9,7 +9,7 @@ class Span
 	private:
 		std::vector<int> _v;
 		unsigned int _N;
-//		unsigned int _index;
+		unsigned int _index;
 
 	public:
 		Span();
@@ -35,7 +35,13 @@ class Span
 			std::cout << std::endl;
 
 			std::cout << "_N: " << _N << std::endl;
+			std::cout <<"_indxe: " << _index << std::endl;
 
+		}
+
+		void	print_index()
+		{
+			std::cout << "_index: " << _index << std::endl;
 		}
 		
 		void	replaceNumber()
@@ -53,7 +59,6 @@ class Span
 		{
 			return _v.end();
 		}
-
 
 };
 
