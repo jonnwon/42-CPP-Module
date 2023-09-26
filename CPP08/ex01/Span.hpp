@@ -19,6 +19,7 @@ class Span
 		~Span();
 
 		void addNumber(int n);
+		void addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last);
 		int	shortesSpan();
 		int longestSpan();
 		
