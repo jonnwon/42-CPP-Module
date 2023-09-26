@@ -4,50 +4,33 @@ int main()
 {
 	try
 	{
-		Span a(5);
+		Span a(10);
 
-		for (int i=0; i< 5; i++)
+		for (int i=0; i<10; i+=2)
 		{
-			a.print_index();
+			if (i == 2)	// || (i == 0)		// throw NotEnoughNumbersException
+			{
+				std::cout << "a.longesSpan: " << a.longestSpan() << std::endl;
+				std::cout << "a.shortestSpan: " << a.shortestSpan() << std::endl;
+			}
 			a.addNumber(i);
 		}
-		a.addNumber(5);
+		a.print_info();
+
+		std::vector<int> b;
+		for (int i = 0; i < 5; i++)
+			b.push_back(i);
+		a.addNumber(b.begin(), b.end());
+
+		a.print_info();
+		std::cout << "a.longestSpan: " << a.longestSpan() << std::endl;
+		std::cout << "a.shortestSpan: " << a.shortestSpan() << std::endl;
+
+//		a.addNumber(123);		// throw NoSpaceException
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-
-//	a.print_info();
-
-//	std::cout << "copy constructor test" << std::endl;
-//
-//	Span b(a);
-//
-//	b.print_info();
-//
-//	b.replaceNumber();		// 1 -> 10000
-//
-//	b.print_info();			// ok
-//	a.print_info();			// different with b
-//	
-//
-//	std::cout << "Copy assignment operator test" << std::endl;
-//	Span c;
-//
-//	c = b;
-//
-//	c.print_info();		// ok 
-//
-//	
-//	std::cout << "Add number test" << std::endl;
-//
-//
-//	for (int i = 5; i < 10; i++)
-//		c.addNumber(i);
-//	c.print_info();		// ok
-//
-	//////////////////////////////////////////////////////
-
 	return 0;
 }
