@@ -6,13 +6,13 @@ int main()
 	{
 		Span a(10);
 
-		for (int i=0; i<10; i+=2)
+		for (int i = 0; i < 10; i += 2)
 		{
-			if (i == 2)	// || (i == 0)		// throw NotEnoughNumbersException
-			{
-				std::cout << "a.longesSpan: " << a.longestSpan() << std::endl;
-				std::cout << "a.shortestSpan: " << a.shortestSpan() << std::endl;
-			}
+//			if (i == 2)	// || (i == 0)		// throw NotEnoughNumbersException
+//			{
+//				std::cout << "a.longesSpan: " << a.longestSpan() << std::endl;
+//				std::cout << "a.shortestSpan: " << a.shortestSpan() << std::endl;
+//			}
 			a.addNumber(i);
 		}
 		a.print_info();
@@ -32,5 +32,6 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+
 	return 0;
 }
