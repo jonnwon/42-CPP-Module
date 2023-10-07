@@ -65,22 +65,26 @@ class BitcoinExchange
 	
 	class OpenFileException : public std::exception
 	{
-		virtual const char * what() const throw();
+		public:
+			virtual const char * what() const throw();
 	};
 
 	class BadInputException : public std::exception
 	{
-		virtual const char * what() const throw();
+		public:
+			virtual const char * what() const throw();
 	};
 
 	class TooLargeException : public std::exception
 	{
-		virtual const char * what() const throw();
+		public:
+			virtual const char * what() const throw();
 	};
 
 	class NotPositiveException : public std::exception
 	{
-		virtual const char * what() const throw();
+		public:
+			virtual const char * what() const throw();
 	};
 
 //	class InvalidInputException : public std::exception
