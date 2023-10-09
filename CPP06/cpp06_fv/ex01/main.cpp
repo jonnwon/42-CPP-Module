@@ -2,22 +2,24 @@
 
 int main()
 {
-	Data data;
+	Data *data = new Data;
 
-	data.str = "abc";
-	data.num = 123;
+	data->str = "abc";
+	data->num = 123;
 
 	std::cout << "=== data ===" << std::endl;
-	std::cout << "str: " << data.str << std::endl;
-	std::cout << "num: " << data.num << std::endl;
+	std::cout << "str: " << data->str << std::endl;
+	std::cout << "num: " << data->num << std::endl;
 
-	uintptr_t ptr = Serializer::serialize(&data);
+	uintptr_t ptr = Serializer::serialize(data);
 
-	Data *s_data = Serializer::deserialize(ptr);
+	Data *data2 = Serializer::deserialize(ptr);
 
-	std::cout << "=== s_data ===" << std::endl;
-	std::cout << "str: " << s_data->str << std::endl;
-	std::cout << "num: " << s_data->num << std::endl;
+	std::cout << "=== data2 ===" << std::endl;
+	std::cout << "str: " << data2->str << std::endl;
+	std::cout << "num: " << data2->num << std::endl;
+	
+	delete data;
 
 	return 0;
 }
