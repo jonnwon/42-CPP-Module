@@ -1,6 +1,6 @@
 NAME		=	Serialization
 
-CXX			=	c++ -g
+CXX			=	c++
 
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
