@@ -78,7 +78,7 @@ bool		ScalarConverter::isDoubleLiteral(std::string& str)
 	bool	decimalPoint	= false;
 	bool	sign			= false;
 
-	if (len < 3)
+	if (len < 3 || str[len -1] == '.')
 		return false;
 	for (size_t i = 0; i < len; i++)
 	{
