@@ -27,7 +27,7 @@ Base * generate(void)
 		}
 		case 2:
 		{
-			std::cout << "Generate c" << std::endl;
+			std::cout << "Generate C" << std::endl;
 			res = new C;
 			break;
 		}
@@ -53,16 +53,31 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-	if (dynamic_cast<A*>(&p))
+	try
 	{
+		A& a = dynamic_cast<A&>(p);
+		(void)a;
 		std::cout << "This is A" << std::endl;
 	}
-	else if (dynamic_cast<B*>(&p))
+	catch (...)
 	{
-		std::cout << "This is B" << std::endl;
-	}
-	else if (dynamic_cast<C*>(&p))
-	{
-		std::cout << "This is C" << std::endl;
+		try
+		{
+			B& b = dynamic_cast<B&>(p);
+			(void)b;
+			std::cout << "This is B" << std::endl;
+		}
+		catch (...)
+		{
+			try
+			{
+				C& c = dynamic_cast<C&>(p);
+				(void)c;
+				std::cout << "This is C" << std::endl;
+			}
+			catch (...)
+			{
+			}
+		}
 	}
 }

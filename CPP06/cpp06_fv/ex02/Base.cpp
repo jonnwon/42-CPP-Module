@@ -2,5 +2,4 @@
 
 Base::~Base()
 {
-	std::cout << "[Base] : Destructor called" << std::endl;
 }

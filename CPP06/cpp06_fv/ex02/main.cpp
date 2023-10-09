@@ -6,11 +6,12 @@ void identify(Base& p);
 
 int main()
 {
-	Base *objs;
+	Base *obj = generate();
 
-	objs = generate();
-	identify(objs);
-	identify(*objs);
+	identify(obj);
+	identify(*obj);
+
+	delete obj;
 
 	return 0;
 }
