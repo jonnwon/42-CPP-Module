@@ -28,10 +28,18 @@ bool		ScalarConverter::isCharLiteral(std::string& str)
 
 bool		ScalarConverter::isIntLiteral(std::string& str)
 {
+	bool	sign	= false;
+
 	for (size_t i = 0; i < str.length(); i++)
 	{
-		if (!isdigit(str[i]))
+		if (!isdigit(str[i]) && str[i] != '+' && str[i] != '-')
 			return false;
+		if (str[i] == '+' || str[i] == '-')
+		{
+			if (sign)
+				return false;
+			sign = true;
+		}
 	}
 	return true;
 }
@@ -40,21 +48,26 @@ bool		ScalarConverter::isFloatLiteral(std::string& str)
 {
 	size_t	len				= str.length();
 	bool	decimalPoint	= false;
+	bool	sign			= false;
 
-	if (len < 4)
-		return false;
-	if (str[len - 1] != 'f' && str[len - 1] != 'F')
+	if (len < 4 || (str[len - 1] != 'f' && str[len - 1] != 'F'))
 		return false;
 	for (size_t i = 0; i < len - 1; i++)
 	{
-		if (str[i] == '.')
+		if (!isdigit(str[i]) && str[i] != '+' && str[i] != '-' && str[i] != '.')
+			return false;
+		else if (str[i] == '.')
 		{
 			if (decimalPoint)
 				return false;
 			decimalPoint = true;
 		}
-		else if (!isdigit(str[i]))
-			return false;
+		else if (str[i] == '+' || str[i] == '-')
+		{
+			if (sign)
+				return false;
+			sign = true;
+		}
 	}
 	return true;
 }
@@ -63,19 +76,26 @@ bool		ScalarConverter::isDoubleLiteral(std::string& str)
 {
 	size_t	len				= str.length();
 	bool	decimalPoint	= false;
+	bool	sign			= false;
 
 	if (len < 3)
 		return false;
 	for (size_t i = 0; i < len; i++)
 	{
-		if (str[i] == '.')
+		if (!isdigit(str[i]) && str[i] != '+' && str[i] != '-' && str[i] != '.')
+			return false;
+		else if (str[i] == '.')
 		{
 			if (decimalPoint)
 				return false;
 			decimalPoint = true;
 		}
-		else if (!isdigit(str[i]))
-			return false;
+		else if (str[i] == '+' || str[i] == '-')
+		{
+			if (sign)
+				return false;
+			sign = true;
+		}
 	}
 	return true;
 }

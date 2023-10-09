@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include <limits>
 
 void	checkLiteral(std::string& str)
 {
