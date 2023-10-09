@@ -1,6 +1,4 @@
 #include "ScalarConverter.hpp"
-#include <iomanip>
-#include <limits>
 
 ScalarConverter::ScalarConverter()
 {
@@ -30,19 +28,12 @@ bool		ScalarConverter::isCharLiteral(std::string& str)
 
 bool		ScalarConverter::isIntLiteral(std::string& str)
 {
-    std::stringstream iss(str);
-    int num;
-
-    if (iss >> num)
+	for (size_t i = 0; i < str.length(); i++)
 	{
-        char remaining;
-        if (iss >> remaining)
-		{
-            return false;
-        }
-        return true;
-    }
-    return false;
+		if (!isdigit(str[i]))
+			return false;
+	}
+	return true;
 }
 
 bool		ScalarConverter::isFloatLiteral(std::string& str)
@@ -145,6 +136,14 @@ const char* ScalarConverter::NondisplayableException::what() const throw()
 	return "Non displayable";
 }
 
+void	ScalarConverter::printImpossible()
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
+}
+
 void	ScalarConverter::conversion(double _dValue)
 {
 	try
@@ -206,7 +205,6 @@ void		ScalarConverter::convert(std::string& literal)
 		}
 	}
 
-	std::cout << "idx: " << idx << std::endl;
 	switch (idx)
 	{
 		case -1:
@@ -216,6 +214,7 @@ void		ScalarConverter::convert(std::string& literal)
 			{
 				_dValue = static_cast<double>(stod(literal));
 				ScalarConverter::conversion(_dValue);
+				break;
 			}
 			std::cout << "Error: Invalid argument" << std::endl;
 			break;
@@ -225,14 +224,21 @@ void		ScalarConverter::convert(std::string& literal)
 			break;
 		case 1:
 			_dValue = static_cast<double>(stod(literal));
-			std::cout << "_dValue: " << _dValue << std::endl;
-			if (_dValue < std::numeric_limits<int>::min()\
-			|| _dValue > std::numeric_limits<int>::max())
-				_dValue = std::numeric_limits<int>::max();
+
+			if (_dValue < std::numeric_limits<int>::min() || _dValue > std::numeric_limits<int>::max())
+			{
+				printImpossible();
+				return ;
+			}
 			ScalarConverter::conversion(_dValue);
 			break;
 		case 2:
 			_dValue = static_cast<double>(stod(literal));
+			if (_dValue < -std::numeric_limits<float>::max() || _dValue > std::numeric_limits<float>::max())
+			{
+				printImpossible();
+				return ;
+			}
 			ScalarConverter::conversion(_dValue);
 			break;
 		case 3:

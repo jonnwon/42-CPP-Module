@@ -2,15 +2,37 @@
 
 void	checkLiteral(std::string& str)
 {
-	std::cout << "str: " << str << std::endl;
-	std::cout << "isCharLiteral: " << ScalarConverter::isCharLiteral(str) << std::endl;
-	std::cout << "isIntLiteral: " << ScalarConverter::isIntLiteral(str) << std::endl;
+	int idx = -1;
 
+	bool (*p[4])(std::string& str) = {&ScalarConverter::isCharLiteral, &ScalarConverter::isIntLiteral\
+		, &ScalarConverter::isFloatLiteral, &ScalarConverter::isDoubleLiteral};
 
-	std::cout << "IsFloatLiteral: " << ScalarConverter::isFloatLiteral(str) << std::endl;
-
-	std::cout << "IsDoubleLiteral: " << ScalarConverter::isDoubleLiteral(str) << std::endl;
-
+	for (int i = 0; i < 4; i++)
+	{
+		if (p[i](str) == true)
+		{
+			idx = i;
+			break ;
+		}
+	}
+	switch (idx)
+	{
+		case -1:
+			std::cout << "Invalid Literal" << std::endl;
+			break;
+		case 0:
+			std::cout << "Char Literal" << std::endl;
+			break;
+		case 1:
+			std::cout << "Int Literal" << std::endl;
+			break;
+		case 2:
+			std::cout << "Float Literal" << std::endl;
+			break;
+		case 3:
+			std::cout << "Double Literal" << std::endl;
+			break;
+	}
 }
 
 int main(int argc, char **argv)
@@ -24,7 +46,6 @@ int main(int argc, char **argv)
 	std::string str(argv[1]);
 
 //	checkLiteral(str);
-
 	ScalarConverter::convert(str);
 
 	return 0;

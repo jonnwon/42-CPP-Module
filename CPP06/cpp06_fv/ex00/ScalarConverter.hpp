@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <iomanip>
+#include <limits>
 
 class ScalarConverter
 {
@@ -15,7 +17,6 @@ class ScalarConverter
 		~ScalarConverter();
 	
 	public:
-		// isfunc()~
 		static bool		isCharLiteral(std::string& str);
 		static bool		isIntLiteral(std::string& str);
 		static bool		isFloatLiteral(std::string& str);
@@ -25,6 +26,11 @@ class ScalarConverter
 		static int		toInt(double _dValue);
 		static float	toFloat(double _dValue);
 		static double	toDouble(double _dValue);
+
+		static void		printImpossible();
+
+		static void		conversion(double _dValue);
+		static void		convert(std::string& literal);
 
 		class ImpossibleException : public std::exception
 		{
@@ -37,10 +43,6 @@ class ScalarConverter
 			public:
 				virtual const char* what() const throw();
 		};
-
-		static void		conversion(double _dValue);
-		static void		convert(std::string& literal);
-
 };
 
 #endif
