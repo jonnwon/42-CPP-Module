@@ -1,10 +1,9 @@
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-#include <exception>
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <exception>
 #include <iomanip>
 #include <limits>
 
@@ -29,7 +28,7 @@ class ScalarConverter
 
 		static void		printImpossible();
 
-		static void		conversion(double _dValue);
+		static void		printResult(double _dValue);
 		static void		convert(std::string& literal);
 
 		class ImpossibleException : public std::exception

@@ -134,7 +134,6 @@ float	ScalarConverter::toFloat(double _dValue)
 	return static_cast<float>(_dValue);
 }
 
-
 double	ScalarConverter::toDouble(double _dValue)
 {
 	if (_dValue == std::numeric_limits<double>::infinity()\
@@ -164,7 +163,7 @@ void	ScalarConverter::printImpossible()
 	std::cout << "double: impossible" << std::endl;
 }
 
-void	ScalarConverter::conversion(double _dValue)
+void	ScalarConverter::printResult(double _dValue)
 {
 	try
 	{
@@ -172,11 +171,7 @@ void	ScalarConverter::conversion(double _dValue)
 		char res = ScalarConverter::toChar(_dValue);
 		std::cout << "'" << res << "'" << std::endl;
 	}
-	catch (ScalarConverter::ImpossibleException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (ScalarConverter::NondisplayableException &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -185,16 +180,16 @@ void	ScalarConverter::conversion(double _dValue)
 	{
 		std::cout << "int: " << ScalarConverter::toInt(_dValue) << std::endl;
 	}
-	catch (ScalarConverter::ImpossibleException &e)
+	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;;
+		std::cout << e.what() << std::endl;
 	}
 
 	try
 	{
 		std::cout << "float: " << std::fixed << std::setprecision(1) << toFloat(_dValue) << "f" << std::endl;
 	}
-	catch (ScalarConverter::ImpossibleException &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -203,7 +198,7 @@ void	ScalarConverter::conversion(double _dValue)
 	{
 		std::cout << "double: " << std::fixed << std::setprecision(1) << toDouble(_dValue) << std::endl;
 	}
-	catch (ScalarConverter::ImpossibleException &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -233,14 +228,14 @@ void		ScalarConverter::convert(std::string& literal)
 				literal == "nan" || literal == "nanf")
 			{
 				_dValue = static_cast<double>(stod(literal));
-				ScalarConverter::conversion(_dValue);
+				ScalarConverter::printResult(_dValue);
 				break;
 			}
 			std::cout << "Error: Invalid argument" << std::endl;
 			break;
 		case 0:
 			_dValue = static_cast<double>(literal[1]);
-			ScalarConverter::conversion(_dValue);
+			ScalarConverter::printResult(_dValue);
 			break;
 		case 1:
 			_dValue = static_cast<double>(stod(literal));
@@ -250,7 +245,7 @@ void		ScalarConverter::convert(std::string& literal)
 				printImpossible();
 				return ;
 			}
-			ScalarConverter::conversion(_dValue);
+			ScalarConverter::printResult(_dValue);
 			break;
 		case 2:
 			_dValue = static_cast<double>(stod(literal));
@@ -259,11 +254,11 @@ void		ScalarConverter::convert(std::string& literal)
 				printImpossible();
 				return ;
 			}
-			ScalarConverter::conversion(_dValue);
+			ScalarConverter::printResult(_dValue);
 			break;
 		case 3:
 			_dValue = static_cast<double>(stod(literal));
-			ScalarConverter::conversion(_dValue);
+			ScalarConverter::printResult(_dValue);
 			break;
 	}
 }
