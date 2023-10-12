@@ -3,13 +3,22 @@
 
 #include <iostream>
 
-template<typename T>
-void	iter(T *arr, int len, void(*f)(T&))
+template<typename T, typename U>
+void	iter(T	*arr, size_t len, U (*f)(T &))
 {
-	for (int i = 0; i < len; i++)
-	{
+	if (arr == NULL || f == NULL)
+		return ;
+	for (size_t i = 0; i < len; i++)
 		f(arr[i]);
-	}
+}
+
+template<typename T, typename U>
+void	iter(const T *arr, size_t len, U (*f)(const T &))
+{
+	if (arr == NULL || f == NULL)
+		return ;
+	for (size_t i = 0; i < len; i++)
+		f(arr[i]);
 }
 
 template <typename T>
