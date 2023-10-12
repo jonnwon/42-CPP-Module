@@ -1,0 +1,32 @@
+Initializing references to const values
+
+const 참조는 non-const 값, const 값 및 r-value 로 초기화할 수 있다. (r-value : 임의의 값) 
+
+
+EX] https://boycoding.tistory.com/208
+
+int x = 5;
+const int& ref1 = x; // okay, x is a non-const l-value
+
+const int y = 7;
+const int& ref2 = y; // okay, y is a const l-value
+
+const int& ref3 = 6; // okay, 6 is an r-value
+
+
+------------------------------
+
+
+template <typename T>
+const T& min(const T& a, const T &b)
+{
+	return a < b ? a : b;
+}
+
+template <typename T>
+const T& max(const T& a, const T& b)
+{
+	return a > b ? a : b;
+}
+
+즉, 이렇게만 써도 a와 b가 non-const 라면 초기화가 된다.
