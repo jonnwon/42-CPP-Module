@@ -2,6 +2,7 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <limits>
 #include <exception>
 
 template <typename T>
@@ -18,7 +19,7 @@ class Array
 		Array& operator=(const Array& rhs);
 		~Array();
 
-		T& operator[](unsigned int index) const;
+		T& operator[](double index) const;
 		unsigned int size() const;
 };
 
@@ -81,13 +82,17 @@ Array<T>::~Array()
 }
 
 template <typename T>
-T& Array<T>::operator[](unsigned int index) const
+T& Array<T>::operator[](double index) const
 {
+	unsigned int idx;
+
 	if (index < 0 || index >= _size)
 	{
 		throw std::out_of_range("Array index out of bounds");
 	}
-	return _arr[index];
+	idx = static_cast<unsigned int>(index);
+
+	return _arr[idx];
 }
 
 template <typename T>
