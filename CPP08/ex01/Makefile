@@ -1,8 +1,8 @@
 NAME		=	Span
 
-CXX			=	c++
+CXX			=	c++ -g
 
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRC			=	main.cpp\
 				Span.cpp\
@@ -14,12 +14,12 @@ OBJS	=	$(SRC:%.cpp=$(OBJS_DIR)/%.o)
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJS)
-	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 
 $(OBJS_DIR)/%.o	:	%.cpp
 	mkdir -p $(@D)
-	$(CXX) $(CFLAGS) -c $^ -o $@
+	$(CXX) $(CXXFLAGS) -c $^ -o $@
 
 clean	:
 	rm -rf $(OBJS_DIR)

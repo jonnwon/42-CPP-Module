@@ -20,7 +20,18 @@ class Span
 		~Span();
 
 		void	addNumber(int n);
-		void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
+		// template 으로 다시 구현 
+//		void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
+		template <typename InputIt>
+		void	addRange(InputIt first, InputIt last)
+		{
+			std::cout << "first: "<< *first << std::endl;
+			std::cout << "last: "<< *last << std::endl;
+		}
+
+
 		int		shortestSpan();
 		int		longestSpan();
 		void	print_info();

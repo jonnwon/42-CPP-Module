@@ -13,11 +13,13 @@ class MutantStack   :   public std::stack<T>
         MutantStack<T>& operator=(const MutantStack& rhs);
         virtual ~MutantStack();
 
+		typedef typename std::stack<T>::container_type::iterator		iterator; 
+		typedef typename std::stack<T>::container_type::const_iterator	const_iterator; 
 
-        typedef typename std::stack<T>::container_type::iterator                    iterator; 
-
-	    iterator				begin();
-	    iterator				end();
+	    iterator		begin();
+	    iterator		end();
+		const_iterator	begin() const;
+		const_iterator	end() const;
 };        
 
 template <typename T>
@@ -57,5 +59,18 @@ typename std::stack<T>::container_type::iterator MutantStack<T>::end()
 {
     return this->c.end();
 }
+
+template <typename T>
+typename std::stack<T>::container_type::const_iterator MutantStack<T>::begin()
+{
+    return this->c.begin();
+}
+
+template <typename T>
+typename std::stack<T>::container_type::const_iterator MutantStack<T>::end()
+{
+    return this->c.end();
+}
+
 
 #endif

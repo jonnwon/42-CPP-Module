@@ -16,15 +16,18 @@ int main()
 			a.addNumber(i);
 		}
 		a.print_info();
-
-		std::vector<int> b;
-		for (int i = 0; i < 5; i++)
-			b.push_back(i);
-		a.addNumber(b.begin(), b.end());
-
-		a.print_info();
-		std::cout << "a.longestSpan: " << a.longestSpan() << std::endl;
 		std::cout << "a.shortestSpan: " << a.shortestSpan() << std::endl;
+
+
+
+//		std::vector<int> b;
+//		for (int i = 0; i < 5; i++)
+//			b.push_back(i);
+//		a.addNumber(b.begin(), b.end());
+//
+//		a.print_info();
+//		std::cout << "a.longestSpan: " << a.longestSpan() << std::endl;
+//		std::cout << "a.shortestSpan: " << a.shortestSpan() << std::endl;
 
 //		a.addNumber(123);		// throw NoSpaceException
 	}

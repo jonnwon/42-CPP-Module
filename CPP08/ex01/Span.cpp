@@ -37,13 +37,13 @@ void	Span::addNumber(int n)
 	_index++;
 }
 
-void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-    for (std::vector<int>::iterator it = begin; it != end; it++)
-    {
-        addNumber(*it);
-    }
-}
+//void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+//{
+//    for (std::vector<int>::iterator it = begin; it != end; it++)
+//    {
+//        addNumber(*it);
+//    }
+//}
 
 int	Span::shortestSpan()
 {
