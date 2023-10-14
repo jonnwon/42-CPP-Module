@@ -23,7 +23,7 @@ int main()
 
 	try
 	{
-		std::vector<int>::iterator it = easyfind(v, 10);
+		std::vector<int>::iterator it = easyfind(v, 10);		// not found
 		std::cout << "value: " << *it << std::endl;
 	}
 	catch (std::exception &e)
@@ -51,7 +51,7 @@ int main()
 
 	try
 	{
-		std::list<int>::iterator it2 = easyfind(l, 10);
+		std::list<int>::iterator it2 = easyfind(l, 10);			// not found
 		std::cout << "value: " << *it2 << std::endl;
 	}
 	catch (std::exception &e)
@@ -79,7 +79,7 @@ int main()
 
 	try
 	{
-		std::deque<int>::iterator it3 = easyfind(d, 10);
+		std::deque<int>::iterator it3 = easyfind(d, 10);		// not found
 		std::cout << "value: " << *it3 << std::endl;
 	}
 	catch (std::exception &e)
