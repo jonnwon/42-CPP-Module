@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
+#include <deque>
 #include <exception>
 
 class Span
@@ -27,10 +29,19 @@ class Span
 		template <typename InputIt>
 		void	addRange(InputIt first, InputIt last)
 		{
-			std::cout << "first: "<< *first << std::endl;
-			std::cout << "last: "<< *last << std::endl;
-		}
+//			std::cout << "first: " << *first << std::endl;
+//			std::cout << "first: " << *(first + 1) << std::endl;
+//			std::cout << "last: " << *(last - 1) << std::endl;
 
+			for (InputIt it = first; it != last; ++it)
+			{
+				if (_index == _N)
+					throw NoSpaceException();
+				_v.push_back(*it);
+				_index++;
+				//std::cout << *it << std::endl;
+			}
+		}
 
 		int		shortestSpan();
 		int		longestSpan();
