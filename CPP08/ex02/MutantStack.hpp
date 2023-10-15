@@ -61,13 +61,13 @@ typename std::stack<T>::container_type::iterator MutantStack<T>::end()
 }
 
 template <typename T>
-typename std::stack<T>::container_type::const_iterator MutantStack<T>::begin()
+typename std::stack<T>::container_type::const_iterator MutantStack<T>::begin() const
 {
     return this->c.begin();
 }
 
 template <typename T>
-typename std::stack<T>::container_type::const_iterator MutantStack<T>::end()
+typename std::stack<T>::container_type::const_iterator MutantStack<T>::end() const
 {
     return this->c.end();
 }
