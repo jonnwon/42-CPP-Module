@@ -1,4 +1,8 @@
 #include "Span.hpp"
+#include <exception>
+#include <numeric>
+#include <random>
+#include <vector>
 
 Span::Span()
 {
@@ -45,33 +49,86 @@ void	Span::addNumber(int n)
 //    }
 //}
 
+//int	Span::shortestSpan()
+//{
+//	int min;
+//
+//	if (_index < 2)
+//		throw NotEnoughNumbersException();
+//	std::vector<int> v = _v;
+//	std::sort(v.begin(), v.end());
+//
+//	min = v[1] - v[0];
+//	for (unsigned int i = 1; i < _N; i++)
+//	{
+//		if (v[i + 1] && v[i + 1] - v[i] < min)
+//			min = v[i + 1] - v[i]; 
+//	}
+//	return min;
+//}
+
 int	Span::shortestSpan()
 {
-	int min;
+	int	min;
 
 	if (_index < 2)
 		throw NotEnoughNumbersException();
-	std::vector<int> v = _v;
-	std::sort(v.begin(), v.end());
 
-	min = v[1] - v[0];
-	for (unsigned int i = 1; i < _N; i++)
+	std::vector<int> v(_index);
+	std::vector<int>::iterator it;
+
+	it = std::adjacent_difference(_v.begin(), _v.end(), v.begin());
+
+	if (v[1] < 0)
+		v[1] *= -1;
+	min = v[1];
+
+	for (std::vector<int>::size_type i = 1; i < v.size(); i++)
 	{
-		if (v[i + 1] && v[i + 1] - v[i] < min)
-			min = v[i + 1] - v[i]; 
+		if (v[i] < 0)
+			v[i] *= -1;
+		if (min > v[i])
+			min = v[i];
 	}
 	return min;
 }
 
-int Span::longestSpan()
+int	Span::longestSpan()
 {
+	int max;
+
 	if (_index < 2)
 		throw NotEnoughNumbersException();
-	int min_value = *std::min_element(_v.begin(), _v.end());
-	int max_value = *std::max_element(_v.begin(), _v.end());
+
+	std::vector<int> v(_index);
+	std::vector<int>::iterator it;
+
+	it = std::adjacent_difference(_v.begin(), _v.end(), v.begin());
+
+	if (v[1] < 0)
+		v[1] *= -1;
+	max = v[1];
 	
-	return max_value - min_value;
+	for (std::vector<int>::size_type i = 1; i < v.size(); i++)
+	{
+		if (v[i] < 0)
+			v[i] *= -1;
+		if (max < v[i])
+			max = v[i];
+	}
+	return max;
 }
+
+//int Span::longestSpan()
+//{
+//	if (_index < 2)
+//		throw NotEnoughNumbersException();
+//	int min_value = *std::min_element(_v.begin(), _v.end());
+//	int max_value = *std::max_element(_v.begin(), _v.end());
+//	
+//	return max_value - min_value;
+//}
+
 
 void	Span::print_info()
 {
