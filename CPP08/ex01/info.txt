@@ -1,0 +1,21 @@
+이번 과제는 Span이라는 클래스를 구현해보는 것.
+
+Span 의 Private 에는 값을 저장할 벡터, capacity 역할을 하는 _N, 
+size역할을 하는 _index 가 있다. 
+
+Span 의 기본생성자는 호출되면 안되므로 마찬가지로 private 에 넣어둠.
+
+
+Span 에 숫자를 추가하는 addNumber, addRange 함수가 있고,
+
+addRange 같은 경우는 어떤 컨테이너의 iterator 든 받을 수 있게 
+template 으로 구현함.
+
+
+숫자 마다의 간격의 절대값 중 가장 짧은 것과 긴 것을 각 함수들로 구현함
+
+std::adjacent_difference 함수를 통해 구함. 
+
+첫번째인자와 두번째 인자는 기존 벡터의 시작과 끝 반복자
+세번째 인자는 그 결과들을 넣을 벡터의 첫번째 주소
+

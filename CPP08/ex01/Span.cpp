@@ -45,9 +45,8 @@ int	Span::shortestSpan()
 		throw NotEnoughNumbersException();
 
 	std::vector<int> v(_index);
-	std::vector<int>::iterator it;
 
-	it = std::adjacent_difference(_v.begin(), _v.end(), v.begin());
+	std::adjacent_difference(_v.begin(), _v.end(), v.begin());
 
 	if (v[1] < 0)
 		v[1] *= -1;
@@ -71,9 +70,8 @@ int	Span::longestSpan()
 		throw NotEnoughNumbersException();
 
 	std::vector<int> v(_index);
-	std::vector<int>::iterator it;
 
-	it = std::adjacent_difference(_v.begin(), _v.end(), v.begin());
+	std::adjacent_difference(_v.begin(), _v.end(), v.begin());
 
 	if (v[1] < 0)
 		v[1] *= -1;
@@ -96,7 +94,7 @@ void	Span::print_info()
 	std::cout << std::endl;
 
 	std::cout << "Span capacity: " << _N << std::endl;
-	std::cout << "index: " << _index << std::endl;
+	std::cout << "Span size: " << _index << std::endl;
 }
 
 const char* Span::NoSpaceException::what() const throw()

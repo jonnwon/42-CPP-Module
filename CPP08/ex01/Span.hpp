@@ -12,8 +12,8 @@ class Span
 {
 	private:
 		std::vector<int> _v;
-		unsigned int _N;
-		unsigned int _index;
+		unsigned int _N;		// like capacity
+		unsigned int _index;	// like size
 		Span();
 
 	public:

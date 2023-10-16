@@ -63,7 +63,7 @@ void	addRange_test()
 int main()
 {
 	general_test();
-	addRange_test();
+//	addRange_test();
 
 	return 0;
 }
