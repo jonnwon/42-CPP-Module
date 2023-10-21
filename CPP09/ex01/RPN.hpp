@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stack>
 #include <sstream>
+#include <cctype>
 
 class	RPN
 {
@@ -24,12 +25,12 @@ class	RPN
 	//	static int	calculate(const char *input);
 
 
-//	class	InputExceptiona : public std::exception
-//	{
-//		public:
-//			virtual	const char * what() throw();
-//	};
-//
+	class	InputException : public std::exception
+	{
+		public:
+			virtual	const char * what() const throw();
+	};
+
 //	class	TooLargeException : public std::exception
 //	{
 //		public:
