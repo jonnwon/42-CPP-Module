@@ -2,29 +2,27 @@
 
 BitcoinExchange::BitcoinExchange()
 {
-	std::cout << "[BitcoinExchange] : Defualt constructor called" << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
 {
-	std::cout << "[BitcoinExchange] : Copy constructor called" << std::endl;
-	
 	*this = other;
 }
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& rhs)
 {
-	std::cout << "[BitcoinExchange] : Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
 		_data = rhs._data;
+		_year = rhs._year;
+		_month = rhs._month;
+		_day = rhs._day;
 	}
 	return *this;
 }
 
 BitcoinExchange::~BitcoinExchange()
 {
-	std::cout << "[BitcoinExchange] : Destructor called" << std::endl;
 }
 
 void	BitcoinExchange::readDatabase(std::string& database)
@@ -36,10 +34,7 @@ void	BitcoinExchange::readDatabase(std::string& database)
 
 	file.open(database.c_str());
 	if (!file.is_open())
-	{
-		std::cout << "file open error!" << std::endl;
-		return ;
-	}
+		throw OpenFileException();
 	std::getline(file, line);
 	while (!file.eof())
 	{
@@ -81,7 +76,9 @@ void	BitcoinExchange::readInputFile(std::string &inputFile)
 		try
 		{
 			// date == "" || delim == "" || value == "" 
-			if (date.compare("") == 0 || delim.compare("") == 0 || value.compare("") == 0)
+//			if (date.compare("") == 0 || delim.compare("") == 0 || value.compare("") == 0)
+//				throw InputException();
+			if (date == "" || delim == "" || value == "")
 				throw InputException();
 			else if (delim.compare("|") != 0)
 				throw DelimException();
