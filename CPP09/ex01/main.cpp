@@ -7,12 +7,9 @@ int main(int argc, char **argv)
 		std::cout << "Error: Need one argument" << std::endl;
 		return 1;
 	}
-
 	try
 	{
-	
-	RPN::printTest();
-	RPN::checkInput(argv[1]);
+		RPN::parseInput(argv[1]);
 	}
 	catch (std::exception &e)
 	{
