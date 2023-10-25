@@ -52,8 +52,8 @@ void	PmergeMe::parseInput(char **input)
 	else
 		isOdd = false;
 
-	std::cout << " -- unsorted -- "  << std::endl;
-	printStl(unsorted);
+//	std::cout << " -- unsorted -- "  << std::endl;
+//	printStl(unsorted);
 
 	//  initInsertionOrder
 	int size;
@@ -63,8 +63,8 @@ void	PmergeMe::parseInput(char **input)
 		size = (unsorted.size() / 2);
 	initInsertionOrder(size);
 
-	std::cout << "-- insertionOrder --" << std::endl;
-	printStl(insertionOrder);
+//	std::cout << "-- insertionOrder --" << std::endl;
+//	printStl(insertionOrder);
 }
 
 
@@ -125,11 +125,11 @@ void	PmergeMe::initVector()
 	if (isOdd)
 		vPending.push_back(lastNumber);
 
-	std::cout << "-- vMain --" << std::endl;
-	printStl(vMain);
-
-	std::cout << "-- vPending --" << std::endl;
-	printStl(vPending);
+//	std::cout << "-- vMain --" << std::endl;
+//	printStl(vMain);
+//
+//	std::cout << "-- vPending --" << std::endl;
+//	printStl(vPending);
 }
 
 void	PmergeMe::initDeque()
@@ -159,11 +159,11 @@ void	PmergeMe::initDeque()
 	if (isOdd)
 		dPending.push_back(lastNumber);
 
-	std::cout << "-- dMain --" << std::endl;
-	printStl(dMain);
-
-	std::cout << "-- dPending --" << std::endl;
-	printStl(dPending);
+//	std::cout << "-- dMain --" << std::endl;
+//	printStl(dMain);
+//
+//	std::cout << "-- dPending --" << std::endl;
+//	printStl(dPending);
 }
 
 
@@ -172,10 +172,12 @@ void	PmergeMe::insertionVector()
 	for (size_t i = 0; i < insertionOrder.size(); i++)
 	{
 		std::vector<long long>::iterator it;
-		it = std::upper_bound(vMain.begin(), vMain.end(), vPending[insertionOrder[i] - 1]);
+		std::vector<long long>::iterator end = vMain.begin() + insertionOrder[i] - 1;
+
+		it = std::upper_bound(vMain.begin(), end, vPending[insertionOrder[i] - 1]);
 		vMain.insert(it, vPending[insertionOrder[i] - 1]);
 	}
-	printStl(vMain);
+//	printStl(vMain);
 }
 
 void	PmergeMe::insertionDeque()
@@ -188,23 +190,8 @@ void	PmergeMe::insertionDeque()
 		it = std::upper_bound(dMain.begin(), end, dPending[insertionOrder[i] - 1]);
 		dMain.insert(it, dPending[insertionOrder[i] - 1]);
 	}
-	printStl(dMain);
+//	printStl(dMain);
 }
-
-void	PmergeMe::insertionDeque_2()
-{
-	for (size_t i = 0; i < insertionOrder.size(); i++)
-	{
-		std::deque<long long>::iterator it;
-
-
-		it = std::upper_bound(dMain.begin(), dMain.end(), dPending[insertionOrder[i] - 1]);
-		dMain.insert(it, dPending[insertionOrder[i] - 1]);
-	}
-	printStl(dMain);
-}
-
-
 
 const char * PmergeMe::InputException::what() const throw()
 {

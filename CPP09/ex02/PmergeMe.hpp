@@ -46,8 +46,6 @@ class PmergeMe
 		void	insertionVector();
 		void	insertionDeque();
 
-		void	insertionDeque_2();
-
 		class	InputException : public std::exception
 		{
 			public:
