@@ -67,48 +67,35 @@ void	PmergeMe::parseInput(char **input)
 	printStl(insertionOrder);
 }
 
-void	PmergeMe::init_vector_and_deque()
+
+size_t	PmergeMe::jacobsthal(int n)
 {
-			bool odd = false;
-			long long tmp;
+    if (n == 0) 
+        return 0;
+    else if (n == 1)
+        return 1;
+    else
+        return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
+}
 
-			if (unsorted.size() % 2 != 0)
-			{
-				odd = true;
-				tmp = unsorted.back();
-				unsorted.pop_back();
-			}
-			for (size_t i = 0; i < unsorted.size(); i += 2)
-			{
-				long long left = unsorted[i];
-				long long right = unsorted[i + 1];
 
-				if (left < right)
-					swap(left, right);
-				vMain.push_back(left);
-				vPending.push_back(right);
-				dMain.push_back(left);
-				dPending.push_back(right);
-			}
+void	PmergeMe::initInsertionOrder(size_t size)
+{
+	insertionOrder.push_back(1);
+	for (size_t i = 3; jacobsthal(i) <= size; i++)
+	{
+		for (size_t num = jacobsthal(i); num != jacobsthal(i - 1); num--)
+		{
+			insertionOrder.push_back(num);
+		}
+	}
 
-			for (size_t i = 0; i < vMain.size(); i++)
-			{
-				for (size_t j = i + 1; j < vMain.size(); j++)
-				{
-					if (vMain[i] > vMain[j])
-					{
-						swap(vMain[i], vMain[j]);
-						swap(vPending[i], vPending[j]);
-						swap(dMain[i], dMain[j]);
-						swap(dPending[i], dPending[j]);
-					}
-				}
-			}
-			if (odd)
-			{
-				vPending.push_back(tmp);
-				dPending.push_back(tmp);
-			}
+	int num = size;
+	while (insertionOrder.size() != size)
+	{
+		insertionOrder.push_back(num);
+		num--;
+	}
 }
 
 void	PmergeMe::initVector()
@@ -180,36 +167,6 @@ void	PmergeMe::initDeque()
 }
 
 
-size_t	PmergeMe::jacobsthal(int n)
-{
-    if (n == 0) 
-        return 0;
-    else if (n == 1)
-        return 1;
-    else
-        return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
-}
-
-
-void	PmergeMe::initInsertionOrder(size_t size)
-{
-	insertionOrder.push_back(1);
-	for (size_t i = 3; jacobsthal(i) <= size; i++)
-	{
-		for (size_t num = jacobsthal(i); num != jacobsthal(i - 1); num--)
-		{
-			insertionOrder.push_back(num);
-		}
-	}
-
-	int num = size;
-	while (insertionOrder.size() != size)
-	{
-		insertionOrder.push_back(num);
-		num--;
-	}
-}
-
 void	PmergeMe::insertionVector()
 {
 	for (size_t i = 0; i < insertionOrder.size(); i++)
@@ -226,11 +183,28 @@ void	PmergeMe::insertionDeque()
 	for (size_t i = 0; i < insertionOrder.size(); i++)
 	{
 		std::deque<long long>::iterator it;
+		std::deque<long long>::iterator end = dMain.begin() + insertionOrder[i] - 1;
+
+		it = std::upper_bound(dMain.begin(), end, dPending[insertionOrder[i] - 1]);
+		dMain.insert(it, dPending[insertionOrder[i] - 1]);
+	}
+	printStl(dMain);
+}
+
+void	PmergeMe::insertionDeque_2()
+{
+	for (size_t i = 0; i < insertionOrder.size(); i++)
+	{
+		std::deque<long long>::iterator it;
+
+
 		it = std::upper_bound(dMain.begin(), dMain.end(), dPending[insertionOrder[i] - 1]);
 		dMain.insert(it, dPending[insertionOrder[i] - 1]);
 	}
 	printStl(dMain);
 }
+
+
 
 const char * PmergeMe::InputException::what() const throw()
 {

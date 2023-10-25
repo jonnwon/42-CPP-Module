@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <deque>
+#include <list>
 
 class PmergeMe
 {
@@ -21,6 +22,10 @@ class PmergeMe
 		std::deque<long long> dMain;
 		std::deque<long long> dPending;
 
+		std::list<long long> lMain;
+		std::list<long long> lPending;
+
+
 		std::vector<size_t> insertionOrder;
 
 
@@ -30,39 +35,18 @@ class PmergeMe
 		PmergeMe& operator=(const PmergeMe& rhs);
 		~PmergeMe();
 
-		template <typename T>
-		void	printStl(T &t)
-		{
-			typename T::iterator it;
-			typename T::iterator ite = t.end();
-
-			for (it = t.begin(); it != ite; ++it)
-				std::cout << *it << " ";
-			std::cout << std::endl;
-		}
-
 		void	parseInput(char **input);
-
-		template <typename T>
-		void swap(T& a, T& b)
-		{
-			T temp = a;
-			a = b;
-			b = temp;
-		}
-
-
-		void	init_vector_and_deque();
-
-		void	initVector();
-		void	initDeque();
-
 
 		size_t	jacobsthal(int n);
 		void	initInsertionOrder(size_t size);
 
+		void	initVector();
+		void	initDeque();
+
 		void	insertionVector();
 		void	insertionDeque();
+
+		void	insertionDeque_2();
 
 		class	InputException : public std::exception
 		{
@@ -71,5 +55,24 @@ class PmergeMe
 		};
 
 };
+
+template <typename T>
+void swap(T& a, T& b)
+{
+	T temp = a;
+	a = b;
+	b = temp;
+}
+
+template <typename T>
+void	printStl(T &t)
+{
+	typename T::iterator it;
+	typename T::iterator ite = t.end();
+
+	for (it = t.begin(); it != ite; ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
 
 #endif
