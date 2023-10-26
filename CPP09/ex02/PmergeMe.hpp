@@ -36,6 +36,7 @@ class PmergeMe
 		~PmergeMe();
 
 		void	parseInput(char **input);
+		bool	checkDuplicate();
 
 		size_t	jacobsthal(int n);
 		void	initInsertionOrder(size_t size);
@@ -46,12 +47,12 @@ class PmergeMe
 		void	insertionVector();
 		void	insertionDeque();
 
+
 		class	InputException : public std::exception
 		{
 			public:
 				virtual	const char * what() const throw();
 		};
-
 };
 
 template <typename T>

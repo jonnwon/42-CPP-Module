@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 #include <algorithm>
+#include <deque>
 #include <sstream>
 #include <vector>
 
@@ -43,6 +44,12 @@ void	PmergeMe::parseInput(char **input)
 		unsorted.push_back(num);
 	}
 	
+	if (checkDuplicate())
+		throw InputException();
+
+	std::cout << " -- unsorted -- "  << std::endl;
+	printStl(unsorted);
+
 	if (unsorted.size() % 2 != 0)
 	{
 		isOdd = true;
@@ -52,8 +59,7 @@ void	PmergeMe::parseInput(char **input)
 	else
 		isOdd = false;
 
-//	std::cout << " -- unsorted -- "  << std::endl;
-//	printStl(unsorted);
+
 
 	//  initInsertionOrder
 	int size;
@@ -67,6 +73,18 @@ void	PmergeMe::parseInput(char **input)
 //	printStl(insertionOrder);
 }
 
+bool	PmergeMe::checkDuplicate()
+{
+	for (size_t i = 0; i < unsorted.size(); i++)
+	{
+		for (size_t j = i + 1; j < unsorted.size(); j++)
+		{
+			if (unsorted[i] == unsorted[j])
+				return true;
+		}
+	}
+	return false;
+}
 
 size_t	PmergeMe::jacobsthal(int n)
 {
@@ -169,31 +187,38 @@ void	PmergeMe::initDeque()
 
 void	PmergeMe::insertionVector()
 {
+	std::vector<long long> v(vMain);
+
 	for (size_t i = 0; i < insertionOrder.size(); i++)
 	{
 		std::vector<long long>::iterator it;
-		std::vector<long long>::iterator end = vMain.begin() + insertionOrder[i] - 1;
+		std::vector<long long>::iterator end = find(vMain.begin(), vMain.end(), v[insertionOrder[i] - 1]); 
 
 		it = std::upper_bound(vMain.begin(), end, vPending[insertionOrder[i] - 1]);
+//		it = std::upper_bound(vMain.begin(), vMain.end(), vPending[insertionOrder[i] - 1]);
+
 		vMain.insert(it, vPending[insertionOrder[i] - 1]);
 	}
-//	printStl(vMain);
+	std::cout << "-- sort using vector --" << std::endl;
+	printStl(vMain);
 }
 
 void	PmergeMe::insertionDeque()
 {
+	std::deque<long long> d(dMain);
 	for (size_t i = 0; i < insertionOrder.size(); i++)
 	{
 		std::deque<long long>::iterator it;
-		std::deque<long long>::iterator end = dMain.begin() + insertionOrder[i] - 1;
+		std::deque<long long>::iterator end = find(dMain.begin(), dMain.end(), d[insertionOrder[i] -1]);
 
 		it = std::upper_bound(dMain.begin(), end, dPending[insertionOrder[i] - 1]);
 		dMain.insert(it, dPending[insertionOrder[i] - 1]);
 	}
-//	printStl(dMain);
+	std::cout << "-- sort using deque --" << std::endl;
+	printStl(dMain);
 }
 
 const char * PmergeMe::InputException::what() const throw()
 {
-	return "Error: not digit";
+	return "Error";
 }
